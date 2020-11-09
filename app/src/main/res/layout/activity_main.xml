@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@color/green"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/x"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:autoSizeTextType="uniform"
+            android:drawablePadding="8dp" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="225dp"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:text="L-CURE"
+            android:textSize="50dp"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/setting"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/setting_drawable" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/learn_skills"
+        android:layout_width="330dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="5dp"
+        android:text="실력 알아보기"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:background="@color/blue"
+        android:drawableLeft="@drawable/learn_drawable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout9" />
+
+    <Button
+        android:id="@+id/improving_skills"
+        android:layout_width="330dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="5dp"
+        android:text="실력 키우기"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:background="@color/pink"
+        android:drawableLeft="@drawable/improving_drawable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/learn_skills" />
+
+    <Button
+        android:id="@+id/my_own_words"
+        android:layout_width="330dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="5dp"
+        android:text="나만의 단어"
+        android:textSize="30dp"
+        android:textColor="@color/black"
+        android:background="@color/whiteGreen"
+        android:drawableLeft="@drawable/words_drawable"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/improving_skills" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
