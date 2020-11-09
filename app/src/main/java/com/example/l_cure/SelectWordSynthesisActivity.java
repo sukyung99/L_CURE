@@ -131,9 +131,9 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
                 String input = inputs.get(i);
                 if (input.equals(answer_word)) {
                     // correct
-
                     if(quizCount==5){
-
+                        Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
+                        startActivityForResult(intent,5000);
                     } else {
                         quizCount++;
                         new_word_list.remove(word_index);

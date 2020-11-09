@@ -48,21 +48,21 @@ public class PopupActivity extends Activity {
     //확인 버튼 클릭
     public void mOnClose(View v){
         if(number==1){
+            onBackPressed();
             Intent intent = new Intent(getApplicationContext(), SelectSyllableCountActivity.class);
             intent.putExtra("result", "Close Popup");
             setResult(RESULT_OK, intent);
             startActivityForResult(intent,5000);
         }else if(number==2){
+            onBackPressed();
             Intent intent = new Intent(getApplicationContext(), SelectWordSynthesisActivity.class);
             intent.putExtra("result", "Close Popup");
             setResult(RESULT_OK, intent);
             startActivityForResult(intent,5000);
         }
-    }
-
-    @Override
-    public void onBackPressed() {
-        //안드로이드 백버튼 막기
-        return;
+        else {
+            onBackPressed();
+            return;
+        }
     }
 }

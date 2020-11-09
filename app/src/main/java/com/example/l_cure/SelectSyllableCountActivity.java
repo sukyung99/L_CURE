@@ -85,6 +85,12 @@ public class SelectSyllableCountActivity extends AppCompatActivity {
         if (one.getText().equals(Integer.toString(word.getText().length()))) {
             // correct
             if (quizCount == 5) {
+                Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
+                startActivityForResult(intent,5000);
+                intent = new Intent(getApplicationContext(), PopupActivity.class);
+                intent.putExtra("number", 7);
+                intent.putExtra("imgName", imgName);
+                startActivityForResult(intent,5000);
 
             } else {
                 quizCount++;
@@ -99,7 +105,6 @@ public class SelectSyllableCountActivity extends AppCompatActivity {
             intent.putExtra("number", 8);
             startActivityForResult(intent,5000);
             // again
-
         }
     }
 
