@@ -41,6 +41,7 @@
 
         <Button
             android:padding="16dp"
+            android:background="#C4DDF2"
             android:drawableRight="@drawable/next"
             android:layout_width="110dp"
             android:layout_height="53dp"
