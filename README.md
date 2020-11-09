@@ -11,7 +11,7 @@
   배리어프리 앱 개발 콘테스트 프로젝트 <br>
 <h3>
 <h2 align="center">
-  <a href="https://github.com/Deokk/L-Cure-project">
+  <a href="https://github.com/sukyung99/L_CURE">
     <strong>Application for dyslexia patients</strong> <br>
   </a>
 </h2>
