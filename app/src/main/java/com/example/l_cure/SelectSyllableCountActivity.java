@@ -55,58 +55,40 @@ public class SelectSyllableCountActivity extends AppCompatActivity {
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (one.getText().equals(Integer.toString(word.getText().length()))) {
-                    // correct
-                    if(quizCount==5){
-
-                    }else {
-                        quizCount++;
-                        showNext();
-                    }
-                }else{
-                    // again
-
-                }
+                verifyCorrect(one);
             }
         });
         two = findViewById(R.id.two);
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (two.getText().equals(Integer.toString(word.getText().length()))) {
-                    // correct
-                    if(quizCount==5){
-
-                    }else {
-                        quizCount++;
-                        showNext();
-                    }
-                }else{
-                    // again
-
-                }
+                verifyCorrect(two);
             }
         });
         three = findViewById(R.id.three);
         three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (three.getText().equals(Integer.toString(word.getText().length()))) {
-                    // correct
-                    if(quizCount==5){
-
-                    }else {
-                        quizCount++;
-                        showNext();
-                    }
-                }else{
-                    // again
-
-                }
+                verifyCorrect(three);
             }
         });
 
         new_word_list.remove(index);
+    }
+
+    private void verifyCorrect(Button one) {
+        if (one.getText().equals(Integer.toString(word.getText().length()))) {
+            // correct
+            if (quizCount == 5) {
+
+            } else {
+                quizCount++;
+                showNext();
+            }
+        } else {
+            // again
+
+        }
     }
 
     public void showNext(){

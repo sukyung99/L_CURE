@@ -32,8 +32,58 @@ public class SelectImprovingSkillsActivity extends AppCompatActivity {
         syllable_count.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), SelectSyllableCountActivity.class);
                 Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                intent.putExtra("number", 1);
+                startActivityForResult(intent,5000);
+            }
+        });
+
+        word_synthesis = findViewById(R.id.word_synthesis);
+        word_synthesis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                intent.putExtra("number", 2);
+                startActivityForResult(intent,5000);
+            }
+        });
+
+        phonemic_fractionation = findViewById(R.id.phonemic_fractionation);
+        phonemic_fractionation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                intent.putExtra("number", 3);
+                startActivityForResult(intent,5000);
+            }
+        });
+
+        phonemic_synthesis = findViewById(R.id.phonemic_synthesis);
+        phonemic_synthesis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                intent.putExtra("number", 4);
+                startActivityForResult(intent,5000);
+            }
+        });
+
+        phonemic_substitution = findViewById(R.id.phonemic_substitution);
+        phonemic_substitution.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                intent.putExtra("number", 5);
+                startActivityForResult(intent,5000);
+            }
+        });
+
+        syllabic_discrimination = findViewById(R.id.syllabic_discrimination);
+        syllabic_discrimination.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                intent.putExtra("number", 6);
                 startActivityForResult(intent,5000);
             }
         });
