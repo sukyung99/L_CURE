@@ -16,8 +16,9 @@
 
         <ImageView
             android:id="@+id/word_img"
+            android:scaleType="fitCenter"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="200dp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -34,17 +35,14 @@
     <!-- 닫기 버튼 -->
     <LinearLayout
         android:orientation="horizontal"
-        android:gravity="center"
+        android:gravity="right"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <Button
-            android:text="확인"
-            android:textSize="18sp"
-            android:textColor="#000"
             android:padding="16dp"
-            android:gravity="center"
-            android:background="#00000000"
-            android:layout_width="match_parent"
+            android:drawableRight="@drawable/next"
+            android:layout_width="110dp"
             android:layout_height="53dp"
             android:onClick="mOnClose"/>
     </LinearLayout>

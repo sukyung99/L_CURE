@@ -1,14 +1,17 @@
 package com.example.l_cure;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -17,8 +20,9 @@ public class SelectSyllableCountActivity extends AppCompatActivity {
     Button one, two, three;
     TextView word;
     private List<Words> word_list; // words 리스트
-    private List<Words> new_word_list;
+    private List<Words> new_word_list = new ArrayList<>();;
     private int quizCount = 1;
+    String imgName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +34,15 @@ public class SelectSyllableCountActivity extends AppCompatActivity {
 
         for (int i = 0; i < word_list.size(); i++) {
             if (word_list.get(i).getWord().length() < 4) {
-                new_word_list = word_list;
+                new_word_list.add(word_list.get(i));
             }
         }
 
         Random random = new Random();
         int index = random.nextInt(new_word_list.size());
 
-        String get_word = new_word_list.get(index).getWord(); // 단어
+        String get_word = new_word_list.get(index).getWord();       // 단어
+        imgName = new_word_list.get(index).getImg_name();    // 이미지
 
         word = (TextView) findViewById(R.id.word);
         word.setText(get_word);
@@ -83,9 +88,16 @@ public class SelectSyllableCountActivity extends AppCompatActivity {
 
             } else {
                 quizCount++;
+                Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                intent.putExtra("number", 7);
+                intent.putExtra("imgName", imgName);
+                startActivityForResult(intent,5000);
                 showNext();
             }
         } else {
+            Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+            intent.putExtra("number", 8);
+            startActivityForResult(intent,5000);
             // again
 
         }
@@ -99,50 +111,8 @@ public class SelectSyllableCountActivity extends AppCompatActivity {
 
         word = (TextView) findViewById(R.id.word);
         word.setText(get_word);
+        imgName = new_word_list.get(index).getImg_name();
     }
-
-//    @Override
-//    public void onClick(View view) {
-//        switch(view.getId()){
-//            case R.id.back:
-//                onBackPressed();
-//                return;
-//        }
-//
-//        one = findViewById(R.id.one);
-//        if(one.getText().equals(word.getText().length())){
-//            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//            builder.setTitle("정답입니다!");
-//            builder.setNegativeButton("확인", new DialogInterface.OnClickListener() {
-//                @Override
-//                public void onClick(DialogInterface dialogInterface, int i) {
-//                    // 정답 사진 다이어로그 띄우기
-//                    android.app.AlertDialog.Builder inputBuilder = new android.app.AlertDialog.Builder(SelectSyllableCountActivity.this);
-//                    inputBuilder.setTitle("사진으로 보는 정답");
-//
-////                    final ImageView iv = new ImageView(CountNumActivity.this);
-////                    iv.setImageResource(rightImage); // 사진 소스는 여기!!!!
-////                    inputBuilder.setView(iv);
-//
-//                    inputBuilder.setPositiveButton("다음으로 넘어가기", new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialog, int which) {
-//                            if(quizCount==5){
-////                                showResult();
-//                            }
-//                            else{
-//                                quizCount++;
-//                                showNext();
-//                            }
-//                        }
-//                    });
-//
-//                    inputBuilder.show();
-//                }
-//            });
-//            builder.show();
-//        }
-//    }
 
     private void initLoadDB() {
         DataAdapter mDbHelper = new DataAdapter(this.getApplicationContext());

@@ -43,6 +43,13 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="65dp"
@@ -65,23 +72,34 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout3.5"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        android:orientation="horizontal" />
+
+    <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout3.5"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3.5"
         tools:context=".SelectImprovingSkillsActivity">
 
         <Button
             android:id="@+id/board_1"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/board"
+            android:layout_height="230dp"
+            android:layout_marginTop="-30dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/note"
             app:layout_constraintRight_toLeftOf="@+id/board_2" />
     </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/linearLayout5"
@@ -96,20 +114,19 @@
         <Button
             android:id="@+id/board_2"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/board"
+            android:layout_height="230dp"
+            android:layout_marginTop="-30dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/note"
             app:layout_constraintLeft_toRightOf="@+id/board_1" />
     </LinearLayout>
 
     <Button
         android:id="@+id/mic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="129dp"
+        android:layout_height="112dp"
         android:layout_marginStart="140dp"
-        android:layout_marginTop="12dp"
-        android:background="@drawable/circle_drawable"
-        android:text="mic"
+        android:background="@drawable/green_mic"
         android:textColor="@color/black"
         android:textSize="70dp"
         app:layout_constraintStart_toStartOf="@+id/linearLayout5"
@@ -122,11 +139,11 @@
         android:gravity="center_horizontal"
         android:text="단어1"
         android:textColor="@color/black"
-        android:textSize="50dp"
+        android:textSize="55dp"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
         app:layout_constraintStart_toStartOf="@+id/linearLayout4"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3.5" />
 
     <TextView
         android:id="@+id/word_2"
@@ -135,7 +152,7 @@
         android:gravity="center_horizontal"
         android:text="단어2"
         android:textColor="@color/black"
-        android:textSize="50dp"
+        android:textSize="55dp"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
         app:layout_constraintStart_toStartOf="@+id/linearLayout5"

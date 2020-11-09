@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class PopupActivity extends Activity {
@@ -35,6 +36,10 @@ public class PopupActivity extends Activity {
             setContentView(R.layout.session06_popup);
         }else if(number==7){
             setContentView(R.layout.rightanswer_popup);
+            String imgName = intent.getStringExtra("imgName");
+            ImageView imgView = (ImageView) findViewById(R.id.word_img);
+            int lid = this.getResources().getIdentifier(imgName, "drawable", this.getPackageName());
+            imgView.setImageResource(lid);
         }else if(number==8){
             setContentView(R.layout.wronganswer_popup);
         }

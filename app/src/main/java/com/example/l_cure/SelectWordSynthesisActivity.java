@@ -19,7 +19,7 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
     Button mic;
     TextView word1, word2;
     private List<Words> word_list; // words 리스트
-    private List<Words> new_word_list;
+    private List<Words> new_word_list = new ArrayList<>();
     private int quizCount = 1;
     private String answer_word;
     private int word_index;
@@ -29,18 +29,18 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_word_synthesis);
 
+        word1 = (TextView) findViewById(R.id.word_1);
+        word2 = (TextView) findViewById(R.id.word_2);
+
         // words 데이터베이스 load
         initLoadDB();
 
         // get word list
         for (int i = 0; i < word_list.size(); i++) {
-            if (word_list.get(i).getWord().length() < 4) {
-                new_word_list = word_list;
+            if (word_list.get(i).getWord().length() > 1) {
+                new_word_list.add(word_list.get(i));
             }
         }
-
-        // get random word
-        random_word();
 
         // 뒤로가기 버튼
         back = findViewById(R.id.back);
@@ -51,6 +51,9 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
                 return;
             }
         });
+
+        // get random word
+        random_word();
 
         // click mic button
         mic = findViewById(R.id.mic);
@@ -67,6 +70,56 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    // 데이터베이스 load
+    private void initLoadDB() {
+        DataAdapter mDbHelper = new DataAdapter(this.getApplicationContext());
+        mDbHelper.createDatabase();
+        mDbHelper.open();
+
+        // db에 있는 값들을 model을 적용해서 넣는다.
+        word_list = mDbHelper.getTableData();
+
+        // db 닫기
+        mDbHelper.close();
+    }
+
+    /*
+    func: 문자열 자르기
+    param: word(단어)
+    return: 분리된 단어 배열
+     */
+    private String[] split_word(String word) {
+        String[] split = new String[2];
+        int index ;
+        if(word.length() == 2) {
+            index = 1;
+        } else {
+            Random random = new Random();
+            index = random.nextInt(word.length()-2) + 1;
+        }
+
+        split[0] = word.substring(0, index);
+        split[1] = word.substring(index);
+        return split;
+    }
+
+    // 랜덤으로 단어 뽑기
+    private void random_word() {
+        Random random = new Random();
+        int index = random.nextInt(new_word_list.size());
+        String word = new_word_list.get(index).getWord(); // 단어
+
+        String[] split_word = split_word(word);
+        word1.setText(split_word[0]);
+        word2.setText(split_word[1]);
+        answer_word = word;
+        word_index = index;
+    }
+
+    private void showNext(){
+        random_word();
     }
 
     // 음성 인식 결과
@@ -96,57 +149,6 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    private void showNext(){
-        random_word();
-    }
 
-    /*
-    func: 문자열 자르기
-    param: word(단어)
-    return: 분리된 단어 배열
-     */
-    private String[] split_word(String word) {
-        String[] split = new String[2];
-
-        Random random = new Random();
-        int split_index = random.nextInt(word.length());
-        while( (split_index < 1) || (split_index >= word.length()-1) ) {
-            split_index = random.nextInt(word.length());
-        }
-
-        split[0] = word.substring(0, split_index);
-        split[1] = word.substring(split_index);
-        return split;
-    }
-
-    private void random_word() {
-        Random random = new Random();
-        int index = random.nextInt(new_word_list.size());
-        String get_word = new_word_list.get(index).getWord(); // 단어
-        while(get_word.length() < 2) { // 길이 1 이하의 단어는 제외시킴.
-            get_word = new_word_list.get(index).getWord();
-        }
-
-        word1 = (TextView) findViewById(R.id.word_1);
-        word2 = (TextView) findViewById(R.id.word_2);
-        String[] split_word = split_word(get_word);
-        word1.setText(split_word[0]);
-        word2.setText(split_word[1]);
-        answer_word = get_word;
-
-        this.word_index = index;
-    }
-
-    private void initLoadDB() {
-        DataAdapter mDbHelper = new DataAdapter(this.getApplicationContext());
-        mDbHelper.createDatabase();
-        mDbHelper.open();
-
-        // db에 있는 값들을 model을 적용해서 넣는다.
-        word_list = mDbHelper.getTableData();
-
-        // db 닫기
-        mDbHelper.close();
-    }
 }
 

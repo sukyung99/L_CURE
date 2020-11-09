@@ -18,7 +18,7 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/good" />
+            android:background="@drawable/smile" />
 
         <TextView
             android:id="@+id/txtText"
@@ -40,17 +40,14 @@
     <!-- 닫기 버튼 -->
     <LinearLayout
         android:orientation="horizontal"
-        android:gravity="center"
+        android:gravity="right"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <Button
-            android:text="확인"
-            android:textSize="15sp"
-            android:textColor="#ff7a00"
             android:padding="16dp"
-            android:gravity="center"
-            android:background="#00000000"
-            android:layout_width="match_parent"
+            android:drawableRight="@drawable/next"
+            android:layout_width="110dp"
             android:layout_height="53dp"
             android:onClick="mOnClose"/>
     </LinearLayout>
