@@ -6,6 +6,7 @@ import android.speech.RecognizerIntent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,7 +22,7 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
     private List<Words> word_list; // words 리스트
     private List<Words> new_word_list = new ArrayList<>();
     private int quizCount = 1;
-    private String answer_word;
+    private Words answer_word;
     private int word_index;
 
     @Override
@@ -85,11 +86,8 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
         mDbHelper.close();
     }
 
-    /*
-    func: 문자열 자르기
-    param: word(단어)
-    return: 분리된 단어 배열
-     */
+
+    // 단어 분할하기
     private String[] split_word(String word) {
         String[] split = new String[2];
         int index ;
@@ -114,37 +112,55 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
         String[] split_word = split_word(word);
         word1.setText(split_word[0]);
         word2.setText(split_word[1]);
-        answer_word = word;
         word_index = index;
+        answer_word = new_word_list.get(index);
     }
 
     private void showNext(){
+        quizCount++;
+        new_word_list.remove(word_index);
         random_word();
     }
 
     // 음성 인식 결과
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1 && resultCode == RESULT_OK) {
-            ArrayList<String> inputs = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS); // answer 리스트
-            int chance = 2;
+            ArrayList<String> inputs = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS); // input answer 리스트
+            String input ;
+            boolean correct = false;
+            int chance = 3; // input 후보 개수
             for (int i=0; i<chance; i++) {
-                String input = inputs.get(i);
-                if (input.equals(answer_word)) {
-                    // correct
-                    if(quizCount==5){
-                        Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
-                        startActivityForResult(intent,5000);
-                    } else {
-                        quizCount++;
-                        new_word_list.remove(word_index);
-                        showNext();
-                    }
+                input = inputs.get(i);
+                if (input.equals(answer_word.getWord())) {
+                    correct = true;
                     break;
-                } else{
-                    // again
-
                 }
             }
+
+            if (correct) {
+                // correct answer
+                if(quizCount==5) {
+                    Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
+                    startActivityForResult(intent,5000);
+                    intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("number", 7);
+                    intent.putExtra("imgName", answer_word.getImg_name());
+                    startActivityForResult(intent,5000);
+                } else {
+                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("number", 7);
+                    intent.putExtra("imgName", answer_word.getImg_name());
+                    startActivityForResult(intent,5000);
+
+                    showNext();
+                }
+            } else{
+                // wrong answer
+                Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                intent.putExtra("number", 8);
+                startActivityForResult(intent,5000);
+            }
+
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
