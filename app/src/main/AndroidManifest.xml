@@ -12,6 +12,8 @@
         <activity android:name=".SelectImprovingSkillsActivity"/>
         <activity android:name=".SelectSyllableCountActivity"/>
         <activity android:name=".SelectWordSynthesisActivity"/>
+        <activity android:name=".SelectPhonemicSynthesisActivity"/>
+        <activity android:name=".SelectPhonemicSubstitutionActivity"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

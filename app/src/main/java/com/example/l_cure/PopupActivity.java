@@ -60,6 +60,20 @@ public class PopupActivity extends Activity {
             setResult(RESULT_OK, intent);
             startActivityForResult(intent,5000);
         }
+        else if(number==4){
+            onBackPressed();
+            Intent intent = new Intent(getApplicationContext(), SelectPhonemicSynthesisActivity.class);
+            intent.putExtra("result", "Close Popup");
+            setResult(RESULT_OK, intent);
+            startActivityForResult(intent,5000);
+        }
+        else if(number==5){
+            onBackPressed();
+            Intent intent = new Intent(getApplicationContext(), SelectPhonemicSubstitutionActivity.class);
+            intent.putExtra("result", "Close Popup");
+            setResult(RESULT_OK, intent);
+            startActivityForResult(intent,5000);
+        }
         else {
             onBackPressed();
             return;
