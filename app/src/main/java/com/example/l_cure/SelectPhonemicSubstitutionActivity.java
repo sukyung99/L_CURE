@@ -56,7 +56,7 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
         });
 
         // get random word
-        random_word();
+        randomWord();
 
         // click board button
         mic.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +89,7 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
     }
 
     // 랜덤으로 단어 뽑기
-    private void random_word() {
+    private void randomWord() {
         tv_word.setText("");
         tv_origin_p.setText("");
         tv_new_p.setText("");
@@ -144,64 +144,61 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
         int cho, jwung, jong; // 자소 버퍼: 초성/중성/종성 순
         char origin_jaso = ' ';
         char new_jaso = ' ';
-        char ch = s.charAt(0);
         int change = -1;
+        char ch = s.charAt(0);
 
-//        if (ch >= 0xAC00 && ch <= 0xD7A3) { // "AC00:가" ~ "D7A3:힣" 에 속한 글자면 분해
-            jong = ch - 0xAC00;
-            cho = jong / (21 * 28);
-            jong = jong % (21 * 28);
-            jwung = jong / 28;
-            jong = jong % 28;
+        jong = ch - 0xAC00;
+        cho = jong / (21 * 28);
+        jong = jong % (21 * 28);
+        jwung = jong / 28;
+        jong = jong % 28;
 
-            // 초성, 중성, 종성 중 무엇을 바꿀 것인지 정함
-            Random random = new Random();
-            if (jong == 0) change = random.nextInt(2);
-            else  change = random.nextInt(3); // change - 0: chosung, 1: jwungsung, 2: jongsung
+        // 초성, 중성, 종성 중 무엇을 바꿀 것인지 정함
+        Random random = new Random();
+        if (jong == 0) change = random.nextInt(2);
+        else  change = random.nextInt(3); // change - 0: chosung, 1: jwungsung, 2: jongsung
 
-            int new_cho = cho;
-            int new_jwung = jwung;
-            int new_jong = jong;
+        int new_cho = cho;
+        int new_jwung = jwung;
+        int new_jong = jong;
 
-            if (change == 0) {
-                // 초성 변환
+        if (change == 0) {
+            // 초성 변환
+            do {
+                random = new Random();
+                new_cho = random.nextInt(ChoSung.length);
+            } while (new_cho == cho || ChoSung[new_cho] == JongSung[jong]) ;
+            origin_jaso = ChoSung[cho];
+            new_jaso = ChoSung[new_cho];
+        } else if (change == 1) {
+            // 중성 변환
+            do {
+                random = new Random();
+                new_jwung = random.nextInt(JwungSung.length);
+            } while (new_jwung == jwung) ;
+            origin_jaso = JwungSung[jwung];
+            new_jaso = JwungSung[new_jwung];
+        }
+
+        if (jong != 0) { // c가 0이 아니면, 즉 받침이 있으면
+            if (change == 2) {
+                // 종성 변환
                 do {
                     random = new Random();
-                    new_cho = random.nextInt(ChoSung.length);
-                } while (new_cho == cho || ChoSung[new_cho] == JongSung[jong]) ;
-                origin_jaso = ChoSung[cho];
-                new_jaso = ChoSung[new_cho];
-            } else if (change == 1) {
-                // 중성 변환
-                do {
-                    random = new Random();
-                    new_jwung = random.nextInt(JwungSung.length);
-                } while (new_jwung == jwung) ;
-                origin_jaso = JwungSung[jwung];
-                new_jaso = JwungSung[new_jwung];
+                    new_jong = random.nextInt(JongSung.length-1) + 1;
+                } while (new_jong == jong || JongSung[new_jong] == ChoSung[cho]);
+                origin_jaso = JongSung[jong];
+                new_jaso = JongSung[new_jong];
             }
-
-            if (jong != 0) { // c가 0이 아니면, 즉 받침이 있으면
-                if (change == 2) {
-                    // 종성 변환
-                    do {
-                        random = new Random();
-                        new_jong = random.nextInt(JongSung.length-1) + 1;
-                    } while (new_jong == jong || JongSung[new_jong] == ChoSung[cho]);
-                    origin_jaso = JongSung[jong];
-                    new_jaso = JongSung[new_jong];
-                }
-            }
-//        } else {
-//            made_word = made_word + ch;
-//        }
+        }
 
         this.prev_word = "" + combineJaso(new_cho, new_jwung, new_jong);
 
         return "" + new_jaso + origin_jaso;
     }
 
-    private static char combineJaso(int chosung, int jwungsung, int jongsung) {
+    // 초성, 중성, 종성 합치는 함수
+    private char combineJaso(int chosung, int jwungsung, int jongsung) {
         int x = (chosung * 21 * 28) + (jwungsung * 28) + jongsung;
         return (char) (x + 0xAC00);
     }
@@ -214,6 +211,7 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
             boolean correct = false;
             int chance = 3; // input 후보 개수
             for (int i=0; i<chance; i++) {
+                if (i > inputs.size() - 1) break;
                 input = inputs.get(i);
                 if (input.equals(answer_word.getWord())) {
                     correct = true;
@@ -240,7 +238,6 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
                 }
             } else{
                 // wrong answer
-                tv_word.setText(inputs.get(0));
                 Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                 intent.putExtra("number", 8);
                 startActivityForResult(intent,5000);
@@ -253,6 +250,6 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
     private void showNext(){
         quizCount++;
         new_word_list.remove(word_index);
-        random_word();
+        randomWord();
     }
 }

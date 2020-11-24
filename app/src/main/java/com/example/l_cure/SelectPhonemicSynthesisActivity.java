@@ -174,21 +174,14 @@ public class SelectPhonemicSynthesisActivity extends AppCompatActivity {
             boolean correct = false;
             int chance = 3; // input 후보 개수
             for (int i=0; i<chance; i++) {
+                if (i > inputs.size() - 1) break;
                 input = inputs.get(i);
                 if (input.equals(answer_word.getWord())) {
+                    tv_word.setText(input);
                     correct = true;
                     break;
                 }
             }
-
-            /* 여기 안먹힘
-            try {
-                tv_word.setText(input);
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-             */
 
             if (correct) {
                 // correct answer

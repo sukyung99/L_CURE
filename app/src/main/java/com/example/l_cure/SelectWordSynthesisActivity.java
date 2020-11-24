@@ -130,6 +130,7 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
             boolean correct = false;
             int chance = 3; // input 후보 개수
             for (int i=0; i<chance; i++) {
+                if (i > inputs.size() - 1) break;
                 input = inputs.get(i);
                 if (input.equals(answer_word.getWord())) {
                     correct = true;
