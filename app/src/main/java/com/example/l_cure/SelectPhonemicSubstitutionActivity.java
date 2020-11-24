@@ -168,7 +168,7 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
                 do {
                     random = new Random();
                     new_cho = random.nextInt(ChoSung.length);
-                } while (new_cho == cho && ChoSung[new_cho] == JongSung[jong]) ;
+                } while (new_cho == cho || ChoSung[new_cho] == JongSung[jong]) ;
                 origin_jaso = ChoSung[cho];
                 new_jaso = ChoSung[new_cho];
             } else if (change == 1) {
@@ -187,7 +187,7 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
                     do {
                         random = new Random();
                         new_jong = random.nextInt(JongSung.length-1) + 1;
-                    } while (new_jong == jong && JongSung[new_jong] == ChoSung[cho]);
+                    } while (new_jong == jong || JongSung[new_jong] == ChoSung[cho]);
                     origin_jaso = JongSung[jong];
                     new_jaso = JongSung[new_jong];
                 }
