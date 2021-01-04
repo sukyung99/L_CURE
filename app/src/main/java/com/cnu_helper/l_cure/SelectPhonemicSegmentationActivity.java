@@ -19,13 +19,38 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_phonemic_segmentation);
 
+        Random random = new Random();
+        boolean set1 = random.nextBoolean();
+        boolean set2 = random.nextBoolean();
+        boolean set3 = random.nextBoolean();
 
-        tv_chosung = (TextView) findViewById(R.id.one);
-        tv_jwungsung = (TextView) findViewById(R.id.two);
-        tv_jongsung = (TextView) findViewById(R.id.three);
-        f_chosung = (TextView)  findViewById(R.id.four);
-        f_jwungsung = (TextView)  findViewById(R.id.five);
-        f_jongsung = (TextView)  findViewById(R.id.six);
+        if (set1) {
+            tv_chosung = (TextView) findViewById(R.id.one);
+            f_chosung = (TextView)  findViewById(R.id.four);
+        }
+        else {
+            tv_chosung = (TextView) findViewById(R.id.four);
+            f_chosung = (TextView)  findViewById(R.id.one);
+        }
+
+        if (set2) {
+            tv_jwungsung = (TextView) findViewById(R.id.two);
+            f_jwungsung = (TextView)  findViewById(R.id.five);
+        }
+        else {
+            tv_jwungsung = (TextView) findViewById(R.id.five);
+            f_jwungsung = (TextView)  findViewById(R.id.two);
+        }
+
+        if (set3) {
+            tv_jongsung = (TextView) findViewById(R.id.three);
+            f_jongsung = (TextView)  findViewById(R.id.six);
+        }
+        else {
+            tv_jongsung = (TextView) findViewById(R.id.six);
+            f_jongsung = (TextView)  findViewById(R.id.three);
+        }
+
         tv_word = (TextView) findViewById(R.id.word);
 
         // get random word
@@ -83,11 +108,23 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
         char f2 = JwungSung[random.nextInt(JwungSung.length)];
         char f3 = JongSung[random.nextInt(JongSung.length)];
 
+        while (f1 == c1)
+            f1 = ChoSung[random.nextInt(ChoSung.length)];
+
+        while (f2 == c2)
+            f2 = JwungSung[random.nextInt(JwungSung.length)];
+
+        while (f3 == c3)
+            f3 = JongSung[random.nextInt(JongSung.length)];
+
         r3 = JongsungSwitch(r3);
 
         tv_chosung.setText(blank + c1);
         tv_jwungsung.setText(blank + c2);
         tv_jongsung.setText(blank + c3);
+        f_chosung.setText(blank + f1);
+        f_jwungsung.setText(blank + f2);
+        f_jongsung.setText(blank + f3);
         tv_word.setText(blank + combine(r1, (int)c2, r3));
     }
 
