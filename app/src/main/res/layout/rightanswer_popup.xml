@@ -15,6 +15,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:layout_centerHorizontal="true"
             android:id="@+id/word_img"
             android:scaleType="fitCenter"
             android:layout_width="wrap_content"

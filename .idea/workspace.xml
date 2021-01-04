@@ -21,6 +21,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7030be67-6e79-4dfb-b74e-004ce11b50f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/check_asw.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -31,7 +32,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/SelectPhonemicSegmentationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/SelectPhonemicSegmentationActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_select_phonemic_segmentation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_select_phonemic_segmentation.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/session03_popup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/session03_popup.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/rightanswer_popup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/rightanswer_popup.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +83,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\deokk\Project\helper\L_CURE\app\src\main\res\drawable" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.l_cure" />
     </key>
@@ -203,22 +207,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1609771418914" />
-    <state width="1491" height="174" key="GridCell.Tab.0.bottom" timestamp="1609792664585">
+    <state width="1491" height="174" key="GridCell.Tab.0.bottom" timestamp="1609794434081">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="174" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609792664585" />
-    <state width="1491" height="174" key="GridCell.Tab.0.center" timestamp="1609792664585">
+    <state width="1491" height="174" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609794434081" />
+    <state width="1491" height="174" key="GridCell.Tab.0.center" timestamp="1609794434080">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="174" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609792664585" />
-    <state width="1491" height="174" key="GridCell.Tab.0.left" timestamp="1609792664585">
+    <state width="1491" height="174" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609794434080" />
+    <state width="1491" height="174" key="GridCell.Tab.0.left" timestamp="1609794434080">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="174" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609792664585" />
-    <state width="1491" height="174" key="GridCell.Tab.0.right" timestamp="1609792664585">
+    <state width="1491" height="174" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609794434080" />
+    <state width="1491" height="174" key="GridCell.Tab.0.right" timestamp="1609794434080">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="174" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609792664585" />
+    <state width="1491" height="174" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609794434080" />
     <state x="287" y="50" key="SettingsEditor" timestamp="1609786548147">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

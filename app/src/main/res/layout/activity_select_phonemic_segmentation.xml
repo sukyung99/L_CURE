@@ -69,7 +69,7 @@
         android:layout_width="227dp"
         android:layout_height="140dp"
         android:layout_marginTop="250dp"
-        android:gravity="center_horizontal"
+        android:layout_marginLeft="40dp"
         android:text="물"
         android:textColor="@color/black"
         android:textSize="70dp"
@@ -78,6 +78,22 @@
         app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintStart_toStartOf="@+id/linearLayout3"
         app:layout_constraintTop_toTopOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.471" />
+
+    <Button
+        android:id="@+id/check"
+        android:layout_width="140dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="210dp"
+        android:layout_marginLeft="50dp"
+        android:background="@drawable/check_asw"
+
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+        app:layout_constraintStart_toStartOf="@+id/word"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintHorizontal_bias="0.471"
         app:layout_constraintVertical_bias="0.471" />
 
     <Button

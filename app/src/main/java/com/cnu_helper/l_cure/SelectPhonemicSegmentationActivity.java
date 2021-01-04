@@ -1,5 +1,6 @@
 package com.cnu_helper.l_cure;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +12,7 @@ import java.util.Random;
 
 public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
     Button back, setting;
-    Button tv_chosung, tv_jwungsung, tv_jongsung, f_chosung, f_jwungsung, f_jongsung;
+    Button tv_chosung, tv_jwungsung, tv_jongsung, f_chosung, f_jwungsung, f_jongsung, check;
     TextView tv_word, asw_chosung, asw_jwungsung, asw_jongsung;
     private int quizCount = 1;
 
@@ -60,6 +61,7 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 selectButton(tv_chosung);
+                return;
             }
         });
 
@@ -67,6 +69,7 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 selectButton(f_chosung);
+                return;
             }
         });
 
@@ -74,6 +77,7 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 selectButton(tv_jwungsung);
+                return;
             }
         });
 
@@ -81,6 +85,7 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 selectButton(f_jwungsung);
+                return;
             }
         });
 
@@ -88,6 +93,7 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 selectButton(tv_jongsung);
+                return;
             }
         });
 
@@ -95,10 +101,33 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 selectButton(f_jongsung);
+                return;
             }
         });
 
         tv_word = (TextView) findViewById(R.id.word);
+
+        check = (Button) findViewById(R.id.check);
+        check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if ((asw_chosung.getText() == tv_chosung.getText()) &&
+                        (asw_jwungsung.getText() == tv_jwungsung.getText()) &&
+                        (asw_jongsung.getText() == tv_jongsung.getText()) ) {
+                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("number", 7);
+                    intent.putExtra("imgName", "word_100");
+                    startActivityForResult(intent,5000);
+                    showNext();
+                }
+                else {
+                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("number", 8);
+                    startActivityForResult(intent,5000);
+                    // again
+                }
+            }
+        });
 
         // get random word
         random_word();
@@ -206,8 +235,15 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
             asw_jongsung.setText(btn.getText());
     }
 
+    private void cleanAsw() {
+        asw_chosung.setText("");
+        asw_jwungsung.setText("");
+        asw_jongsung.setText("");
+    }
+
     private void showNext(){
         quizCount++;
+        cleanAsw();
         random_word();
     }
 }
