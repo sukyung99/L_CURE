@@ -11,7 +11,8 @@ import java.util.Random;
 
 public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
     Button back, setting;
-    TextView tv_word, tv_chosung, tv_jwungsung, tv_jongsung, f_chosung, f_jwungsung, f_jongsung;
+    Button tv_chosung, tv_jwungsung, tv_jongsung, f_chosung, f_jwungsung, f_jongsung;
+    TextView tv_word, asw_chosung, asw_jwungsung, asw_jongsung;
     private int quizCount = 1;
 
     @Override
@@ -24,32 +25,78 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
         boolean set2 = random.nextBoolean();
         boolean set3 = random.nextBoolean();
 
+        asw_chosung = (TextView) findViewById(R.id.chosung);
+        asw_jwungsung = (TextView) findViewById(R.id.jwungsung);
+        asw_jongsung = (TextView) findViewById(R.id.jongsung);
+
         if (set1) {
-            tv_chosung = (TextView) findViewById(R.id.one);
-            f_chosung = (TextView)  findViewById(R.id.four);
+            tv_chosung = (Button) findViewById(R.id.one);
+            f_chosung = (Button) findViewById(R.id.four);
         }
         else {
-            tv_chosung = (TextView) findViewById(R.id.four);
-            f_chosung = (TextView)  findViewById(R.id.one);
+            tv_chosung = (Button) findViewById(R.id.four);
+            f_chosung = (Button) findViewById(R.id.one);
         }
 
         if (set2) {
-            tv_jwungsung = (TextView) findViewById(R.id.two);
-            f_jwungsung = (TextView)  findViewById(R.id.five);
+            tv_jwungsung = (Button) findViewById(R.id.two);
+            f_jwungsung = (Button) findViewById(R.id.five);
         }
         else {
-            tv_jwungsung = (TextView) findViewById(R.id.five);
-            f_jwungsung = (TextView)  findViewById(R.id.two);
+            tv_jwungsung = (Button) findViewById(R.id.five);
+            f_jwungsung = (Button) findViewById(R.id.two);
         }
 
         if (set3) {
-            tv_jongsung = (TextView) findViewById(R.id.three);
-            f_jongsung = (TextView)  findViewById(R.id.six);
+            tv_jongsung = (Button) findViewById(R.id.three);
+            f_jongsung = (Button) findViewById(R.id.six);
         }
         else {
-            tv_jongsung = (TextView) findViewById(R.id.six);
-            f_jongsung = (TextView)  findViewById(R.id.three);
+            tv_jongsung = (Button) findViewById(R.id.six);
+            f_jongsung = (Button) findViewById(R.id.three);
         }
+
+        tv_chosung.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectButton(tv_chosung);
+            }
+        });
+
+        f_chosung.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectButton(f_chosung);
+            }
+        });
+
+        tv_jwungsung.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectButton(tv_jwungsung);
+            }
+        });
+
+        f_jwungsung.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectButton(f_jwungsung);
+            }
+        });
+
+        tv_jongsung.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectButton(tv_jongsung);
+            }
+        });
+
+        f_jongsung.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectButton(f_jongsung);
+            }
+        });
 
         tv_word = (TextView) findViewById(R.id.word);
 
@@ -65,7 +112,6 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
                 return;
             }
         });
-
     }
 
     // 랜덤으로 단어 뽑기
@@ -128,6 +174,7 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
         tv_word.setText(blank + combine(r1, (int)c2, r3));
     }
 
+    // 종성 Tagging
     private int JongsungSwitch(int num) {
         switch (num) {
             case 0: return 1;
@@ -143,10 +190,20 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
         }
     }
 
+    // 자모 합성
     private static char combine(int x1, int x2, int x3) {
         x2 = x2 - 0x314f;
         int x = (x1 * 21 * 28) + (x2 * 28) + x3;
         return (char)(x + 0xAC00);
+    }
+
+    private void selectButton(Button btn) {
+        if (btn == tv_chosung || btn == f_chosung)
+            asw_chosung.setText(btn.getText());
+        else if (btn == tv_jwungsung || btn == f_jwungsung)
+            asw_jwungsung.setText(btn.getText());
+        else
+            asw_jongsung.setText(btn.getText());
     }
 
     private void showNext(){
