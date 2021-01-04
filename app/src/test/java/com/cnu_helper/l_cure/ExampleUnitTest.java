@@ -1,4 +1,4 @@
-package com.example.l_cure;
+package com.cnu_helper.l_cure;
 
 import org.junit.Test;
 

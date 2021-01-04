@@ -1,4 +1,4 @@
-package com.example.l_cure;
+package com.cnu_helper.l_cure;
 
 import android.content.Intent;
 import android.os.Bundle;

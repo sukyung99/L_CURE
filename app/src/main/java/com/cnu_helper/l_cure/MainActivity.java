@@ -1,4 +1,4 @@
-package com.example.l_cure;
+package com.cnu_helper.l_cure;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
         my_own_words.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
-//                startActivityForResult(intent,5000);
+                Intent intent = new Intent(getApplicationContext(), SelectMyWordActivity.class);
+                startActivityForResult(intent,5000);
             }
         });
     }
