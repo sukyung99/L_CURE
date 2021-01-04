@@ -53,9 +53,17 @@ public class PopupActivity extends Activity {
             intent.putExtra("result", "Close Popup");
             setResult(RESULT_OK, intent);
             startActivityForResult(intent,5000);
-        }else if(number==2){
+        }
+        else if(number==2){
             onBackPressed();
             Intent intent = new Intent(getApplicationContext(), SelectWordSynthesisActivity.class);
+            intent.putExtra("result", "Close Popup");
+            setResult(RESULT_OK, intent);
+            startActivityForResult(intent,5000);
+        }
+        else if(number==3){
+            onBackPressed();
+            Intent intent = new Intent(getApplicationContext(), SelectPhonemicSegmentationActivity.class);
             intent.putExtra("result", "Close Popup");
             setResult(RESULT_OK, intent);
             startActivityForResult(intent,5000);

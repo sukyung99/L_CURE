@@ -13,6 +13,7 @@
         <activity android:name="com.cnu_helper.l_cure.SelectImprovingSkillsActivity"/>
         <activity android:name="com.cnu_helper.l_cure.SelectSyllableCountActivity"/>
         <activity android:name="com.cnu_helper.l_cure.SelectWordSynthesisActivity"/>
+        <activity android:name="com.cnu_helper.l_cure.SelectPhonemicSegmentationActivity"/>
         <activity android:name="com.cnu_helper.l_cure.SelectPhonemicSynthesisActivity"/>
         <activity android:name="com.cnu_helper.l_cure.SelectPhonemicSubstitutionActivity"/>
         <activity android:name="com.cnu_helper.l_cure.MainActivity">
