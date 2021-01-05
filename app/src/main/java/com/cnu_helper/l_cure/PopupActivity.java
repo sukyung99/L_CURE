@@ -82,6 +82,13 @@ public class PopupActivity extends Activity {
             setResult(RESULT_OK, intent);
             startActivityForResult(intent,5000);
         }
+        else if(number==6){
+            onBackPressed();
+            Intent intent = new Intent(getApplicationContext(), SelectSyllableDiscriminationActivity.class);
+            intent.putExtra("result", "Close Popup");
+            setResult(RESULT_OK, intent);
+            startActivityForResult(intent,5000);
+        }
         else {
             onBackPressed();
             return;

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".SelectSyllableDiscriminationActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@color/green"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".SelectSyllableCountActivity">
+
+        <Button
+            android:id="@+id/back"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/back_drawable" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="237dp"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:text="L-CURE"
+            android:textColor="@color/white"
+            android:textSize="50dp" />
+
+        <Button
+            android:id="@+id/setting"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/setting_drawable" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@color/pink"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:context=".SelectImprovingSkillsActivity">
+
+        <TextView
+            android:id="@+id/select"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:text="ㅂ. 음절 변별"
+            android:textColor="@color/black"
+            android:textSize="40dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3.5"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout3.5"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3.5"
+        tools:context=".SelectImprovingSkillsActivity">
+
+        <Button
+            android:id="@+id/board_1"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="-30dp"
+            android:background="@drawable/note"
+            app:layout_constraintRight_toLeftOf="@+id/board_2" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout4"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        tools:context=".SelectImprovingSkillsActivity">
+
+        <Button
+            android:id="@+id/board_2"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="-30dp"
+            android:background="@drawable/note"
+            app:layout_constraintLeft_toRightOf="@+id/board_1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        tools:context=".SelectImprovingSkillsActivity">
+
+        <Button
+            android:id="@+id/board_3"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="-30dp"
+            android:background="@drawable/note"
+            app:layout_constraintLeft_toRightOf="@+id/board_1" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/speaker"
+        android:layout_width="129dp"
+        android:layout_height="112dp"
+        android:layout_marginStart="140dp"
+        android:background="@drawable/music"
+        android:textColor="@color/black"
+        android:textSize="70dp"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout6"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
+
+    <TextView
+        android:id="@+id/word_1"
+        android:layout_width="227dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="단어1"
+        android:textColor="@color/black"
+        android:textSize="55dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout4"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3.5" />
+
+    <TextView
+        android:id="@+id/word_2"
+        android:layout_width="227dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="단어2"
+        android:textColor="@color/black"
+        android:textSize="55dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+
+    <TextView
+        android:id="@+id/word_3"
+        android:layout_width="227dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="단어3"
+        android:textColor="@color/black"
+        android:textSize="55dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout6"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout6"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout6"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
