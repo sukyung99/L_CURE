@@ -5,6 +5,8 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -18,11 +20,20 @@ public class WritingView extends View {
         super(context);
     }
 
+    public WritingView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public WritingView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
-        paint.setColor(Color.BLACK); // 색상
+        super.onDraw(canvas);
+        paint.setColor(Color.BLUE); // 색상
         paint.setStyle(Paint.Style.STROKE); //STROKE속성을 이용하여 테두리...선...
-        paint.setStrokeWidth(3); //두께
+        paint.setStrokeWidth(50); //두께
         canvas.drawPath(path, paint); //path객체가 가지고 있는 경로를 화면에 그린다...
     }
 
@@ -51,4 +62,13 @@ public class WritingView extends View {
 
         return true;
     }
+
+//    @Override
+//    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+//        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//
+//        DisplayMetrics dm = getResources().getDisplayMetrics();
+//        int width = (int) (200*dm.density);
+//        setMeasuredDimension(width, width);
+//    }
 }
