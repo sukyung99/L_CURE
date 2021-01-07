@@ -19,6 +19,7 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity {
     private String imgName;
     private String get_word, wrong_word_1, wrong_word_2;
     private int var = 0;
+    private String question;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,15 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity {
                 return;
             }
         });
+
+        speaker = findViewById(R.id.speaker);
+        speaker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // speak(question)
+                return;
+            }
+        });
     }
 
     private void makeQuestion() {
@@ -47,7 +57,7 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity {
         imgName = word_list.get(index).getImg_name();    // 이미지
 
         // 첫 글자 저장
-        String question = Character.toString(get_word.charAt(0));
+        question = Character.toString(get_word.charAt(0));
 
         do {
             var ++;
