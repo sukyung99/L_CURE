@@ -11,24 +11,72 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Random;
 
 public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
-    Button back, setting;
-    Button tv_chosung, tv_jwungsung, tv_jongsung, f_chosung, f_jwungsung, f_jongsung, check;
-    TextView tv_word, asw_chosung, asw_jwungsung, asw_jongsung;
+    private Button back, setting;
+    private Button tv_chosung, tv_jwungsung, tv_jongsung, f_chosung, f_jwungsung, f_jongsung, check;
+    private TextView tv_word, asw_chosung, asw_jwungsung, asw_jongsung;
     private int quizCount = 1;
+    private boolean set1, set2, set3;
+    Random random = new Random();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_phonemic_segmentation);
 
-        Random random = new Random();
-        boolean set1 = random.nextBoolean();
-        boolean set2 = random.nextBoolean();
-        boolean set3 = random.nextBoolean();
+        setRandomButton();
 
-        asw_chosung = (TextView) findViewById(R.id.chosung);
-        asw_jwungsung = (TextView) findViewById(R.id.jwungsung);
-        asw_jongsung = (TextView) findViewById(R.id.jongsung);
+        tv_word = (TextView) findViewById(R.id.word);
+
+        check = (Button) findViewById(R.id.check);
+        check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if ((asw_chosung.getText() == tv_chosung.getText()) &&
+                        (asw_jwungsung.getText() == tv_jwungsung.getText()) &&
+                        (asw_jongsung.getText() == tv_jongsung.getText()) ) {
+                    if (quizCount == 5) {
+                        Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
+                        startActivityForResult(intent,5000);
+                        intent = new Intent(getApplicationContext(), PopupActivity.class);
+                        intent.putExtra("number", 7);
+                        intent.putExtra("imgName", "word_100");
+                        startActivityForResult(intent,5000);
+                    }
+                    else {
+                        Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                        intent.putExtra("number", 7);
+                        intent.putExtra("imgName", "word_100");
+                        startActivityForResult(intent, 5000);
+                        showNext();
+                    }
+                }
+                else {
+                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("number", 8);
+                    startActivityForResult(intent,5000);
+                    // again
+                }
+            }
+        });
+
+        // get random word
+        randomWord();
+
+        // 뒤로가기 버튼
+        back = findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+                return;
+            }
+        });
+    }
+
+    private  void setRandomButton() {
+        set1 = random.nextBoolean();
+        set2 = random.nextBoolean();
+        set3 = random.nextBoolean();
 
         if (set1) {
             tv_chosung = (Button) findViewById(R.id.one);
@@ -56,6 +104,10 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
             tv_jongsung = (Button) findViewById(R.id.six);
             f_jongsung = (Button) findViewById(R.id.three);
         }
+
+        asw_chosung = (TextView) findViewById(R.id.chosung);
+        asw_jwungsung = (TextView) findViewById(R.id.jwungsung);
+        asw_jongsung = (TextView) findViewById(R.id.jongsung);
 
         tv_chosung.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,47 +156,10 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
                 return;
             }
         });
-
-        tv_word = (TextView) findViewById(R.id.word);
-
-        check = (Button) findViewById(R.id.check);
-        check.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if ((asw_chosung.getText() == tv_chosung.getText()) &&
-                        (asw_jwungsung.getText() == tv_jwungsung.getText()) &&
-                        (asw_jongsung.getText() == tv_jongsung.getText()) ) {
-                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
-                    intent.putExtra("number", 7);
-                    intent.putExtra("imgName", "word_100");
-                    startActivityForResult(intent,5000);
-                    showNext();
-                }
-                else {
-                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
-                    intent.putExtra("number", 8);
-                    startActivityForResult(intent,5000);
-                    // again
-                }
-            }
-        });
-
-        // get random word
-        random_word();
-
-        // 뒤로가기 버튼
-        back = findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onBackPressed();
-                return;
-            }
-        });
     }
 
     // 랜덤으로 단어 뽑기
-    private void random_word() {
+    private void randomWord() {
 
         String blank = "";
         tv_word.setText("");
@@ -244,6 +259,7 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
     private void showNext(){
         quizCount++;
         cleanAsw();
-        random_word();
+        setRandomButton();
+        randomWord();
     }
 }
