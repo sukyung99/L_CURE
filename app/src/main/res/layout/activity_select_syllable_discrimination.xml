@@ -149,8 +149,10 @@
         app:layout_constraintStart_toStartOf="@+id/linearLayout6"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6" />
 
-    <TextView
+    <Button
         android:id="@+id/word_1"
+        android:background="#00ff0000"
+        android:layout_marginTop="10dp"
         android:layout_width="227dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -162,8 +164,10 @@
         app:layout_constraintStart_toStartOf="@+id/linearLayout4"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3.5" />
 
-    <TextView
+    <Button
         android:id="@+id/word_2"
+        android:background="#00ff0000"
+        android:layout_marginTop="10dp"
         android:layout_width="227dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -175,8 +179,10 @@
         app:layout_constraintStart_toStartOf="@+id/linearLayout5"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
 
-    <TextView
+    <Button
         android:id="@+id/word_3"
+        android:background="#00ff0000"
+        android:layout_marginTop="10dp"
         android:layout_width="227dp"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
