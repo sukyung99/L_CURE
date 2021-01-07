@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         my_own_words.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SelectMyWordActivity.class);
+                Intent intent = new Intent(getApplicationContext(), SelectMyWordStageActivity.class);
                 startActivityForResult(intent,5000);
             }
         });
