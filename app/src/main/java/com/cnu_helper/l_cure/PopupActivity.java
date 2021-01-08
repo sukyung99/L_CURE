@@ -8,9 +8,17 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class PopupActivity extends Activity {
+import com.kakao.sdk.newtoneapi.SpeechRecognizerManager;
+import com.kakao.sdk.newtoneapi.TextToSpeechClient;
+import com.kakao.sdk.newtoneapi.TextToSpeechListener;
+import com.kakao.sdk.newtoneapi.TextToSpeechManager;
+
+public class PopupActivity extends Activity implements TextToSpeechListener {
     private int number;
-    TextView txtText;
+    private String speech_text;
+    TextView txt;
+    String sex, speed, voice;
+    private TextToSpeechClient ttsClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +29,12 @@ public class PopupActivity extends Activity {
         //데이터 가져오기
         Intent intent = getIntent();
         number = intent.getIntExtra("number",0);
+        sex = intent.getStringExtra("sex");
+        speed = intent.getStringExtra("speed");
+        voice = intent.getStringExtra("voice");
+
+        SpeechRecognizerManager.getInstance().initializeLibrary(getApplicationContext());
+        TextToSpeechManager.getInstance().initializeLibrary(getApplicationContext());
 
         if(number==1){
             setContentView(R.layout.session01_popup);
@@ -58,6 +72,60 @@ public class PopupActivity extends Activity {
             TextView textView_6 = findViewById(R.id.textView6);
             textView_6.setText("음절 변별 : " + test[5]);
         }
+
+        String voiceType = null;
+        if(sex == null){
+            voiceType = TextToSpeechClient.VOICE_WOMAN_READ_CALM;
+        }
+        else if(sex.equals("man")){
+            voiceType = TextToSpeechClient.VOICE_MAN_READ_CALM;
+        }
+        else if(sex.equals("woman")){
+            voiceType = TextToSpeechClient.VOICE_WOMAN_READ_CALM;
+        }
+
+        double speechSpeed = 0;
+        if(speed == null){
+            speechSpeed = 0.9D;
+        }
+        else if(speed.equals("slow")){
+            speechSpeed = 0.6D;
+        }
+        else if(speed.equals("regular")){
+            speechSpeed = 0.9D;
+        }
+        else if(speed.equals("fast")){
+            speechSpeed = 1.2D;
+        }
+        if(voice == null){
+            ttsClient = new TextToSpeechClient.Builder()
+                    .setSpeechMode(TextToSpeechClient.NEWTONE_TALK_2)     // 음성합성방식
+                    .setSpeechSpeed(speechSpeed)
+                    .setSpeechVoice(voiceType)
+                    .setListener(PopupActivity.this)
+                    .build();
+
+            txt = findViewById(R.id.textView2);
+            speech_text = txt.getText().toString();
+            ttsClient.play(speech_text);
+            ttsClient = null;
+        }
+        else if(voice.equals("off")){
+            ttsClient = null;
+        }
+        else{
+            ttsClient = new TextToSpeechClient.Builder()
+                    .setSpeechMode(TextToSpeechClient.NEWTONE_TALK_2)     // 음성합성방식
+                    .setSpeechSpeed(speechSpeed)
+                    .setSpeechVoice(voiceType)
+                    .setListener(PopupActivity.this)
+                    .build();
+
+            txt = findViewById(R.id.textView2);
+            speech_text = txt.getText().toString();
+            ttsClient.play(speech_text);
+            ttsClient = null;
+        }
     }
 
     //확인 버튼 클릭
@@ -66,6 +134,9 @@ public class PopupActivity extends Activity {
             onBackPressed();
             Intent intent = new Intent(getApplicationContext(), SelectSyllableCountActivity.class);
             intent.putExtra("result", "Close Popup");
+            intent.putExtra("sex", sex);
+            intent.putExtra("speed", speed);
+            intent.putExtra("voice", voice);
             setResult(RESULT_OK, intent);
             startActivityForResult(intent,5000);
         }
@@ -73,6 +144,9 @@ public class PopupActivity extends Activity {
             onBackPressed();
             Intent intent = new Intent(getApplicationContext(), SelectWordSynthesisActivity.class);
             intent.putExtra("result", "Close Popup");
+            intent.putExtra("sex", sex);
+            intent.putExtra("speed", speed);
+            intent.putExtra("voice", voice);
             setResult(RESULT_OK, intent);
             startActivityForResult(intent,5000);
         }
@@ -80,6 +154,9 @@ public class PopupActivity extends Activity {
             onBackPressed();
             Intent intent = new Intent(getApplicationContext(), SelectPhonemicSegmentationActivity.class);
             intent.putExtra("result", "Close Popup");
+            intent.putExtra("sex", sex);
+            intent.putExtra("speed", speed);
+            intent.putExtra("voice", voice);
             setResult(RESULT_OK, intent);
             startActivityForResult(intent,5000);
         }
@@ -87,6 +164,9 @@ public class PopupActivity extends Activity {
             onBackPressed();
             Intent intent = new Intent(getApplicationContext(), SelectPhonemicSynthesisActivity.class);
             intent.putExtra("result", "Close Popup");
+            intent.putExtra("sex", sex);
+            intent.putExtra("speed", speed);
+            intent.putExtra("voice", voice);
             setResult(RESULT_OK, intent);
             startActivityForResult(intent,5000);
         }
@@ -94,6 +174,9 @@ public class PopupActivity extends Activity {
             onBackPressed();
             Intent intent = new Intent(getApplicationContext(), SelectPhonemicSubstitutionActivity.class);
             intent.putExtra("result", "Close Popup");
+            intent.putExtra("sex", sex);
+            intent.putExtra("speed", speed);
+            intent.putExtra("voice", voice);
             setResult(RESULT_OK, intent);
             startActivityForResult(intent,5000);
         }
@@ -101,6 +184,9 @@ public class PopupActivity extends Activity {
             onBackPressed();
             Intent intent = new Intent(getApplicationContext(), SelectSyllableDiscriminationActivity.class);
             intent.putExtra("result", "Close Popup");
+            intent.putExtra("sex", sex);
+            intent.putExtra("speed", speed);
+            intent.putExtra("voice", voice);
             setResult(RESULT_OK, intent);
             startActivityForResult(intent,5000);
         }
@@ -108,5 +194,22 @@ public class PopupActivity extends Activity {
             onBackPressed();
             return;
         }
+    }
+
+    @Override
+    public void onFinished() {
+
+    }
+
+    @Override
+    public void onError(int code, String message) {
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        TextToSpeechManager.getInstance().finalizeLibrary();
+        SpeechRecognizerManager.getInstance().finalizeLibrary();
     }
 }

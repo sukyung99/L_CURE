@@ -21,16 +21,6 @@
             android:background="@drawable/smile" />
 
         <TextView
-            android:id="@+id/textView"
-            android:textSize="18sp"
-            android:textColor="#000"
-            android:alpha="0.87"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="\n한 글자? 두 글자? 세 글자?\n" />
-
-        <TextView
             android:id="@+id/textView2"
             android:textSize="20sp"
             android:textColor="#000"
@@ -38,7 +28,7 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="글자 수를 맞춰보세요." />
+            android:text="\n한 글자? 두 글자? 세 글자?\n\n글자 수를 맞춰보세요." />
 
 
     </LinearLayout>

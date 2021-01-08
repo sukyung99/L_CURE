@@ -2,31 +2,26 @@ package com.cnu_helper.l_cure;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Locale;
-
-public class SelectImprovingSkillsActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
-    private Button back, setting;
+public class SelectImprovingSkillsActivity extends AppCompatActivity {
+    private Button back;
     private Button syllable_count, word_synthesis, phonemic_fractionation;
     private Button phonemic_synthesis, phonemic_substitution, syllabic_discrimination;
-    private TextToSpeech speech;
-    private String notification = "";
+    String sex, speed, voice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_improving_skills);
-        speech = new TextToSpeech(this,this);
 
-        speech.setLanguage(Locale.KOREAN);
-        speech.setPitch(0.6f);
-        speech.setSpeechRate(0.95f);
-        speech.speak(notification, TextToSpeech.QUEUE_FLUSH, null);
+        Intent intent = getIntent();
+        sex = intent.getStringExtra("sex");
+        speed = intent.getStringExtra("speed");
+        voice = intent.getStringExtra("voice");
 
         back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +38,9 @@ public class SelectImprovingSkillsActivity extends AppCompatActivity implements 
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                 intent.putExtra("number", 1);
+                intent.putExtra("sex", sex);
+                intent.putExtra("speed", speed);
+                intent.putExtra("voice", voice);
                 startActivityForResult(intent,5000);
             }
         });
@@ -53,6 +51,9 @@ public class SelectImprovingSkillsActivity extends AppCompatActivity implements 
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                 intent.putExtra("number", 2);
+                intent.putExtra("sex", sex);
+                intent.putExtra("speed", speed);
+                intent.putExtra("voice", voice);
                 startActivityForResult(intent,5000);
             }
         });
@@ -63,6 +64,9 @@ public class SelectImprovingSkillsActivity extends AppCompatActivity implements 
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                 intent.putExtra("number", 3);
+                intent.putExtra("sex", sex);
+                intent.putExtra("speed", speed);
+                intent.putExtra("voice", voice);
                 startActivityForResult(intent,5000);
             }
         });
@@ -73,6 +77,9 @@ public class SelectImprovingSkillsActivity extends AppCompatActivity implements 
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                 intent.putExtra("number", 4);
+                intent.putExtra("sex", sex);
+                intent.putExtra("speed", speed);
+                intent.putExtra("voice", voice);
                 startActivityForResult(intent,5000);
             }
         });
@@ -83,6 +90,9 @@ public class SelectImprovingSkillsActivity extends AppCompatActivity implements 
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                 intent.putExtra("number", 5);
+                intent.putExtra("sex", sex);
+                intent.putExtra("speed", speed);
+                intent.putExtra("voice", voice);
                 startActivityForResult(intent,5000);
             }
         });
@@ -93,15 +103,11 @@ public class SelectImprovingSkillsActivity extends AppCompatActivity implements 
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                 intent.putExtra("number", 6);
+                intent.putExtra("sex", sex);
+                intent.putExtra("speed", speed);
+                intent.putExtra("voice", voice);
                 startActivityForResult(intent,5000);
             }
         });
-    }
-
-    @Override
-    public void onInit(int i) {
-        speech.setLanguage(Locale.KOREAN);
-        speech.setPitch(0.6f);
-        speech.setSpeechRate(0.95f);
     }
 }
