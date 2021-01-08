@@ -18,16 +18,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7030be67-6e79-4dfb-b74e-004ce11b50f9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/SelectPhonemicSegmentationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/SelectPhonemicSegmentationActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/SelectPhonemicSubstitutionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/SelectPhonemicSubstitutionActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/SelectPhonemicSynthesisActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/SelectPhonemicSynthesisActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/SelectSyllableCountActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/SelectSyllableCountActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/SelectSyllableDiscriminationActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/SelectSyllableDiscriminationActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/SelectWordSynthesisActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/SelectWordSynthesisActivity.java" afterDir="false" />
-    </list>
+    <list default="true" id="7030be67-6e79-4dfb-b74e-004ce11b50f9" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/app/.gradle/" />
@@ -89,8 +80,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/SelectSyllableDiscriminationActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="174" column="85" selection-start-line="174" selection-start-column="85" selection-end-line="174" selection-end-column="85" />
+            <state relative-caret-position="227">
+              <caret line="175" column="73" lean-forward="true" selection-start-line="175" selection-start-column="73" selection-end-line="175" selection-end-column="73" />
               <folding>
                 <element signature="e#3362#4429#0" expanded="true" />
                 <element signature="e#4428#4429#0" expanded="true" />
@@ -385,7 +376,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.24563758" />
@@ -557,8 +547,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/cnu_helper/l_cure/SelectSyllableDiscriminationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="174" column="85" selection-start-line="174" selection-start-column="85" selection-end-line="174" selection-end-column="85" />
+        <state relative-caret-position="227">
+          <caret line="175" column="73" lean-forward="true" selection-start-line="175" selection-start-column="73" selection-end-line="175" selection-end-column="73" />
           <folding>
             <element signature="e#3362#4429#0" expanded="true" />
             <element signature="e#4428#4429#0" expanded="true" />
