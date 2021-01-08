@@ -16,7 +16,8 @@ import java.security.MessageDigest;
 
 
 public class MainActivity extends AppCompatActivity {
-    Button learn_skills, improving_skills, my_own_words;
+    private Button learn_skills, improving_skills, my_own_words;
+    private String test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +30,10 @@ public class MainActivity extends AppCompatActivity {
         learn_skills.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
-//                startActivityForResult(intent,5000);
+                Intent intent = new Intent(getApplicationContext(), SelectSyllableCountActivity.class);
+                test = "test";
+                intent.putExtra("test", test);
+                startActivityForResult(intent,5000);
             }
         });
 
@@ -39,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
+                test = "no";
+                intent.putExtra("test", test);
                 startActivityForResult(intent, 5000);
             }
         });
@@ -48,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SelectMyWordStageActivity.class);
+                test = "no";
+                intent.putExtra("test", test);
                 startActivityForResult(intent,5000);
             }
         });

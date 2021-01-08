@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,12 +20,15 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity {
     private String imgName;
     private String get_word, wrong_word_1, wrong_word_2;
     private int var = 0;
-    private String question;
+    private String question, test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_syllable_discrimination);
+
+        Intent intent =  getIntent();
+        test = intent.getStringExtra("test");
 
         // words 데이터베이스 load
         initLoadDB();
@@ -101,14 +105,16 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity {
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (quizCount == 5) {
+                if (test.split("_")[0].equals("test")) {
+                    testStageResult("o");
+                }
+                else if (quizCount == 5) {
                     Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
                     startActivityForResult(intent,5000);
                     intent = new Intent(getApplicationContext(), PopupActivity.class);
                     intent.putExtra("number", 7);
                     intent.putExtra("imgName", imgName);
                     startActivityForResult(intent,5000);
-
                 } else {
                     quizCount++;
                     Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
@@ -123,20 +129,30 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity {
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
-                intent.putExtra("number", 8);
-                startActivityForResult(intent,5000);
-                // again
+                if (test.split("_")[0].equals("test")) {
+                    testStageResult("x");
+                }
+                else {
+                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("number", 8);
+                    startActivityForResult(intent,5000);
+                    // again
+                }
             }
         });
 
         three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
-                intent.putExtra("number", 8);
-                startActivityForResult(intent,5000);
-                // again
+                if (test.split("_")[0].equals("test")) {
+                    testStageResult("x");
+                }
+                else {
+                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("number", 8);
+                    startActivityForResult(intent,5000);
+                    // again
+                }
             }
         });
 
@@ -152,5 +168,11 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity {
 
         // db 닫기
         mDbHelper.close();
+    }
+
+    private void testStageResult (String this_res) {
+        test = test + this_res;
+        String[] result = test.split("_")[1].split(""); // 여기가 실력알아보기 결과!!! (예시: ooxxox)
+//        Toast.makeText(getApplicationContext(), test.split("_")[1], Toast.LENGTH_LONG).show();
     }
 }

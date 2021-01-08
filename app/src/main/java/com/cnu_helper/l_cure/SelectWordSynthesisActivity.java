@@ -23,11 +23,15 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
     private int quizCount = 1;
     private Words answer_word;
     private int word_index;
+    private String test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_word_synthesis);
+
+        Intent intent =  getIntent();
+        test = intent.getStringExtra("test");
 
         word1 = (TextView) findViewById(R.id.word_1);
         word2 = (TextView) findViewById(R.id.word_2);
@@ -137,15 +141,31 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
                 }
             }
 
-            if (correct) {
+            if (test.split("_")[0].equals("test")) {
+                if (correct) test = test + "o";
+                else test = test + "x";
+
+                Intent intent = new Intent(getApplicationContext(), SelectPhonemicSegmentationActivity.class);
+                intent.putExtra("test", test);
+                startActivityForResult(intent, 5000);
+            }
+
+            else if (correct) {
                 // correct answer
                 if(quizCount==5) {
-                    Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
-                    startActivityForResult(intent,5000);
-                    intent = new Intent(getApplicationContext(), PopupActivity.class);
-                    intent.putExtra("number", 7);
-                    intent.putExtra("imgName", answer_word.getImg_name());
-                    startActivityForResult(intent,5000);
+                    if (test.equals("test")) {
+                        Intent intent = new Intent(getApplicationContext(), SelectPhonemicSegmentationActivity.class);
+                        intent.putExtra("test", test);
+                        startActivityForResult(intent, 5000);
+                    }
+                    else {
+                        Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
+                        startActivityForResult(intent,5000);
+                        intent = new Intent(getApplicationContext(), PopupActivity.class);
+                        intent.putExtra("number", 7);
+                        intent.putExtra("imgName", answer_word.getImg_name());
+                        startActivityForResult(intent,5000);
+                    }
                 } else {
                     Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                     intent.putExtra("number", 7);

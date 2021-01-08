@@ -23,11 +23,15 @@ public class SelectPhonemicSynthesisActivity extends AppCompatActivity {
     private int quizCount = 1;
     private Words answer_word;
     private int word_index;
+    private String test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_phonemic_synthesis);
+
+        Intent intent =  getIntent();
+        test = intent.getStringExtra("test");
 
         tv_chosung = (TextView) findViewById(R.id.chosung);
         tv_jwungsung = (TextView) findViewById(R.id.jwungsung);
@@ -183,7 +187,15 @@ public class SelectPhonemicSynthesisActivity extends AppCompatActivity {
                 }
             }
 
-            if (correct) {
+            if (test.split("_")[0].equals("test")) {
+                if (correct) test = test + "o";
+                else test = test + "x";
+
+                Intent intent = new Intent(getApplicationContext(), SelectPhonemicSubstitutionActivity.class);
+                intent.putExtra("test", test);
+                startActivityForResult(intent, 5000);
+            }
+            else if (correct) {
                 // correct answer
                 if(quizCount==5) {
                     Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);

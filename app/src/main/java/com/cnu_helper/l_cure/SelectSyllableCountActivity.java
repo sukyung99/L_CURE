@@ -19,12 +19,15 @@ public class SelectSyllableCountActivity extends AppCompatActivity {
     private List<Words> word_list; // words 리스트
     private List<Words> new_word_list = new ArrayList<>();;
     private int quizCount = 1;
-    String imgName;
+    private String imgName, test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_syllable_count);
+
+        Intent intent =  getIntent();
+        test = intent.getStringExtra("test");
 
         // words 데이터베이스 load
         initLoadDB();
@@ -79,16 +82,31 @@ public class SelectSyllableCountActivity extends AppCompatActivity {
     }
 
     private void verifyCorrect(Button one) {
-        if (one.getText().equals(Integer.toString(word.getText().length()))) {
+        if (test.equals("test")) {
+            if (one.getText().equals(Integer.toString(word.getText().length()))) test = test + "_o";
+            else test = test + "_x";
+
+            Intent intent = new Intent(getApplicationContext(), SelectWordSynthesisActivity.class);
+            intent.putExtra("test", test);
+            startActivityForResult(intent, 5000);
+        }
+
+        else if (one.getText().equals(Integer.toString(word.getText().length()))) {
             // correct
             if (quizCount == 5) {
-                Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
-                startActivityForResult(intent,5000);
-                intent = new Intent(getApplicationContext(), PopupActivity.class);
-                intent.putExtra("number", 7);
-                intent.putExtra("imgName", imgName);
-                startActivityForResult(intent,5000);
-
+                if (test.equals("test")) {
+                    Intent intent = new Intent(getApplicationContext(), SelectWordSynthesisActivity.class);
+                    intent.putExtra("test", test);
+                    startActivityForResult(intent, 5000);
+                }
+                else {
+                    Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
+                    startActivityForResult(intent,5000);
+                    intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("number", 7);
+                    intent.putExtra("imgName", imgName);
+                    startActivityForResult(intent,5000);
+                }
             } else {
                 quizCount++;
                 Intent intent = new Intent(getApplicationContext(), PopupActivity.class);

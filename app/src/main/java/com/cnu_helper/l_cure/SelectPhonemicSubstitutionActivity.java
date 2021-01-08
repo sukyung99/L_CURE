@@ -23,12 +23,15 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
     private int quizCount = 1;
     private Words answer_word;
     private int word_index;
-    private String prev_word;
+    private String prev_word, test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_phonemic_substitution);
+
+        Intent intent =  getIntent();
+        test = intent.getStringExtra("test");
 
         tv_word = (TextView) findViewById(R.id.word);
         tv_origin_p = (TextView) findViewById(R.id.origin_phonemic);
@@ -219,7 +222,16 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
                 }
             }
 
-            if (correct) {
+            if (test.split("_")[0].equals("test")) {
+                if (correct) test = test + "o";
+                else test = test + "x";
+
+                Intent intent = new Intent(getApplicationContext(), SelectSyllableDiscriminationActivity.class);
+                intent.putExtra("test", test);
+                startActivityForResult(intent, 5000);
+            }
+
+            else if (correct) {
                 // correct answer
                 if(quizCount==5) {
                     Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);

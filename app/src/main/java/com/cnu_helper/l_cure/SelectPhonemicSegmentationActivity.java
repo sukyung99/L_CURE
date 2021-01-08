@@ -17,11 +17,15 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
     private int quizCount = 1;
     private boolean set1, set2, set3;
     Random random = new Random();
+    private String test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_phonemic_segmentation);
+
+        Intent intent =  getIntent();
+        test = intent.getStringExtra("test");
 
         setRandomButton();
 
@@ -31,10 +35,20 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if ((asw_chosung.getText() == tv_chosung.getText()) &&
+                if (test.split("_")[0].equals("test")) {
+                    if ((asw_chosung.getText() == tv_chosung.getText()) &&
+                            (asw_jwungsung.getText() == tv_jwungsung.getText()) &&
+                            (asw_jongsung.getText() == tv_jongsung.getText())) test = test + "o";
+                    else test = test + "x";
+
+                    Intent intent = new Intent(getApplicationContext(), SelectPhonemicSynthesisActivity.class);
+                    intent.putExtra("test", test);
+                    startActivityForResult(intent, 5000);
+                }
+                else if ((asw_chosung.getText() == tv_chosung.getText()) &&
                         (asw_jwungsung.getText() == tv_jwungsung.getText()) &&
                         (asw_jongsung.getText() == tv_jongsung.getText()) ) {
-                    if (quizCount == 5) {
+                     if (quizCount == 5) {
                         Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
                         startActivityForResult(intent,5000);
                         intent = new Intent(getApplicationContext(), PopupActivity.class);
