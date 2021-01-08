@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name="com.cnu_helper.l_cure.SelectMyWordActivity"/>
+        <activity android:name="com.cnu_helper.l_cure.SelectMyWordStageActivity"/>
         <activity android:name="com.cnu_helper.l_cure.SelectImprovingSkillsActivity"/>
         <activity android:name="com.cnu_helper.l_cure.SelectSyllableCountActivity"/>
         <activity android:name="com.cnu_helper.l_cure.SelectWordSynthesisActivity"/>
