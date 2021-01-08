@@ -15,7 +15,7 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:id="@+id/textViewNotification"
+            android:id="@+id/textView1"
             android:textSize="28sp"
             android:textColor="#000"
             android:alpha="0.87"
@@ -25,15 +25,6 @@
             android:text="실력 알아보기 결과\n" />
 
         <TextView
-            android:id="@+id/textView1"
-            android:textSize="20sp"
-            android:textColor="#000"
-            android:alpha="0.87"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="음절 세기 : O\n" />
-        <TextView
             android:id="@+id/textView2"
             android:textSize="20sp"
             android:textColor="#000"
@@ -41,44 +32,7 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="음절 세기 : O\n" />
-        <TextView
-            android:id="@+id/textView3"
-            android:textSize="20sp"
-            android:textColor="#000"
-            android:alpha="0.87"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="음절 세기 : O\n" />
-        <TextView
-            android:id="@+id/textView4"
-            android:textSize="20sp"
-            android:textColor="#000"
-            android:alpha="0.87"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="음절 세기 : O\n" />
-        <TextView
-            android:id="@+id/textView5"
-            android:textSize="20sp"
-            android:textColor="#000"
-            android:alpha="0.87"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="음절 세기 : O\n" />
-        <TextView
-            android:id="@+id/textView6"
-            android:textSize="20sp"
-            android:textColor="#000"
-            android:alpha="0.87"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="음절 세기 : O" />
-
+            android:text="음절 세기 : O\n\n음절 세기 : O\n\n음절 세기 : O\n\n음절 세기 : O\n\n음절 세기 : O\n\n음절 세기 : O\n" />
 
     </LinearLayout>
 

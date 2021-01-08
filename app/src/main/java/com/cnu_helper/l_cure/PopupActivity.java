@@ -59,18 +59,13 @@ public class PopupActivity extends Activity implements TextToSpeechListener {
         }else if(number==9){
             setContentView(R.layout.knowing_popup);
             String[] test = intent.getStringArrayExtra("test");
-            TextView textView_1 = findViewById(R.id.textView1);
-            textView_1.setText("음절 세기 : " + test[0]);
-            TextView textView_2 = findViewById(R.id.textView2);
-            textView_2.setText("단어 합성 : " + test[1]);
-            TextView textView_3 = findViewById(R.id.textView3);
-            textView_3.setText("음소 분절 : " + test[2]);
-            TextView textView_4 = findViewById(R.id.textView4);
-            textView_4.setText("음소 합성 : " + test[3]);
-            TextView textView_5 = findViewById(R.id.textView5);
-            textView_5.setText("음소 대치 : " + test[4]);
-            TextView textView_6 = findViewById(R.id.textView6);
-            textView_6.setText("음절 변별 : " + test[5]);
+            TextView textView = findViewById(R.id.textView2);
+            textView.setText("음절 세기 : " + test[0] +
+                    "\n\n단어 합성 : " + test[1] +
+                    "\n\n음소 분절 : " + test[2] +
+                    "\n\n음소 합성 : " + test[3] +
+                    "\n\n음소 대치 : " + test[4] +
+                    "\n\n음절 변별 : " + test[5] + "\n");
         }
 
         String voiceType = null;
@@ -183,6 +178,16 @@ public class PopupActivity extends Activity implements TextToSpeechListener {
         else if(number==6){
             onBackPressed();
             Intent intent = new Intent(getApplicationContext(), SelectSyllableDiscriminationActivity.class);
+            intent.putExtra("result", "Close Popup");
+            intent.putExtra("sex", sex);
+            intent.putExtra("speed", speed);
+            intent.putExtra("voice", voice);
+            setResult(RESULT_OK, intent);
+            startActivityForResult(intent,5000);
+        }
+        else if(number==9){
+            onBackPressed();
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.putExtra("result", "Close Popup");
             intent.putExtra("sex", sex);
             intent.putExtra("speed", speed);
