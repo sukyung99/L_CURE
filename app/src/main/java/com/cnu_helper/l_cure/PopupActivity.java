@@ -56,6 +56,21 @@ public class PopupActivity extends Activity implements TextToSpeechListener {
             imgView.setImageResource(lid);
         }else if(number==8){
             setContentView(R.layout.wronganswer_popup);
+        }else if(number==9){
+            setContentView(R.layout.knowing_popup);
+            String[] test = intent.getStringArrayExtra("test");
+            TextView textView_1 = findViewById(R.id.textView1);
+            textView_1.setText("음절 세기 : " + test[0]);
+            TextView textView_2 = findViewById(R.id.textView2);
+            textView_2.setText("단어 합성 : " + test[1]);
+            TextView textView_3 = findViewById(R.id.textView3);
+            textView_3.setText("음소 분절 : " + test[2]);
+            TextView textView_4 = findViewById(R.id.textView4);
+            textView_4.setText("음소 합성 : " + test[3]);
+            TextView textView_5 = findViewById(R.id.textView5);
+            textView_5.setText("음소 대치 : " + test[4]);
+            TextView textView_6 = findViewById(R.id.textView6);
+            textView_6.setText("음절 변별 : " + test[5]);
         }
 
         String voiceType = null;
