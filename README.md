@@ -75,9 +75,19 @@
   구성 및 기능
 </h1>
 
+<img src="https://user-images.githubusercontent.com/46366411/104058249-c4e53780-5236-11eb-8173-4c7167f69f9d.jpg" width="15%" height="15%"></img> <img src="https://user-images.githubusercontent.com/46366411/104058250-c4e53780-5236-11eb-9f1a-a7c70b580dfd.jpg" width="15%" height="15%"></img> 
+
+🔺 메인 화면과 메인화면에서 '실력 키우기'를 선택했을 때의 화면입니다. <br><br>
+
 L-Cure는 음운인식훈련을 여섯 단계로 나누어 학습하도록 구성했습니다. <br>
 Test는 각 단계별 문제를 푸는 단계입니다. <br>
-Test 단계를 통해서 사용자는 자신이 부족한 단계가 무엇인지 알 수 있습니다. <br>
+Test 단계를 통해서 사용자는 자신이 부족한 단계가 무엇인지 알 수 있습니다. <br><br>
+
+<img src="https://user-images.githubusercontent.com/46366411/104058255-c6166480-5236-11eb-9928-cf73920974d0.jpg" width="15%" height="15%"></img> <img src="https://user-images.githubusercontent.com/46366411/104058257-c6aefb00-5236-11eb-932e-37c206cc0206.jpg" width="15%" height="15%"></img> <img src="https://user-images.githubusercontent.com/46366411/104058258-c6aefb00-5236-11eb-98e9-a97cc0558d50.jpg" width="15%" height="15%"></img> 
+
+<img src="https://user-images.githubusercontent.com/46366411/104058259-c7479180-5236-11eb-8a32-389f2e6be2c6.jpg" width="15%" height="15%"></img> <img src="https://user-images.githubusercontent.com/46366411/104058261-c7479180-5236-11eb-970d-cb1af5d4ee8f.jpg" width="15%" height="15%"></img> <img src="https://user-images.githubusercontent.com/46366411/104058264-c7e02800-5236-11eb-85ab-28921cbd973b.jpg" width="15%" height="15%"></img> 
+
+🔺 음운인식훈련 6단계의 화면 구성입니다. <br><br>
 
 1단계는 음절세기입니다. <br>
 해당 단계에서는 단어 1개가 제시됩니다. <br>
@@ -101,13 +111,29 @@ Test 단계를 통해서 사용자는 자신이 부족한 단계가 무엇인지
 
 6단계는 음절변별 입니다. <br>
 해당 단계에서는 3개의 단어가 제시되고, ‘어떤 임의의 글자로 시작하는 단어를 맞춰보세요’라고 말해줍니다. <br>
-즉, 제시된 세 단어 중, ‘어떤 임의의 글자로 시작하는 단어’를 클릭하고 정답임을 확인합니다.<br>
+즉, 제시된 세 단어 중, ‘어떤 임의의 글자로 시작하는 단어’를 클릭하고 정답임을 확인합니다.<br><br>
+
+<img src="https://user-images.githubusercontent.com/46366411/104058233-c282dd80-5236-11eb-957b-f040be8c4560.jpg" width="15%" height="15%"></img> <img src="https://user-images.githubusercontent.com/46366411/104058238-c3b40a80-5236-11eb-9e69-c25eb577e1cc.jpg" width="15%" height="15%"></img> 
+
+🔺 정답을 입력했을 때 나타나는 화면 구성입니다. <br><br>
 
 글을 읽지 못하는 사용자를 고려하여 모든 문제를 음성으로 들려줍니다. <br>
-만약 정답을 입력했다면 정답임을 음성으로 들려주줍니다. <br>
+만약 정답을 입력했다면 정답임을 음성으로 들려줍니다. <br>
 또한, 정답에 해당하는 사진을 보여줌으로써 단어의 의미를 알 수 있습니다. <br>
 
-만약 오답을 말했다면 정답이 아님을 음성으로 들려주고 문제를 다시 풀도록 합니다. <br>
+만약 오답을 말했다면 정답이 아님을 음성으로 들려주고 문제를 다시 풀도록 합니다. <br><br>
+
+<img src="https://user-images.githubusercontent.com/46366411/104058242-c3b40a80-5236-11eb-856d-b55858e36b9f.jpg" width="15%" height="15%"></img> <img src="https://user-images.githubusercontent.com/46366411/104058245-c44ca100-5236-11eb-8d36-4ca69cad9ef9.jpg" width="15%" height="15%"></img> <img src="https://user-images.githubusercontent.com/46366411/104058247-c44ca100-5236-11eb-9bae-6d9a3122913f.jpg" width="15%" height="15%"></img> 
+
+🔺 '나만의 단어'는 사용자가 원하는 단어를 선택해 글쓰기 연습을 통해 언어 능력을 향상할 수 있습니다. <br><br>
+
+<img src="https://user-images.githubusercontent.com/46366411/104058265-c7e02800-5236-11eb-931b-c2377b5f8b40.jpg" width="15%" height="15%"></img> 
+
+🔺 '실력 키우기'는 음운인식훈련의 모든 단계를 한 문제씩 풀고 결과를 확인할 수 있습니다. <br><br>
+
+<img src="https://user-images.githubusercontent.com/46366411/104058253-c57dce00-5236-11eb-90f1-4936123af5e7.jpg" width="15%" height="15%"></img> 
+
+🔺 설정에서는 음성의 성별과 음성의 속도, 음성의 전원을 설정할 수 있습니다. <br><br>
 
 <h1>
   <br><br>
