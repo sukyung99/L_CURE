@@ -121,6 +121,7 @@
                 android:textSize="300dp" />
 
             <com.cnu_helper.l_cure.WritingView
+                android:id="@+id/writing_view"
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
                 android:background="#00000000"
@@ -128,13 +129,33 @@
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"/>
 
-            <Button
-                android:id="@+id/check"
-                android:layout_width="120dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="150dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/check_asw" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/show_photo"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="65dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/blue"
+                    android:text="사진보기"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+
+                <Button
+                    android:visibility="gone"
+                    android:id="@+id/save"
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/blue"
+                    android:text="저장하기"
+                    android:textColor="@color/black"
+                    android:textSize="20dp" />
+            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
