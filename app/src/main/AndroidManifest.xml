@@ -28,7 +28,8 @@
         <activity android:name="com.cnu_helper.l_cure.SelectPhonemicSynthesisActivity"/>
         <activity android:name="com.cnu_helper.l_cure.SelectPhonemicSubstitutionActivity"/>
         <activity android:name="com.cnu_helper.l_cure.SelectSyllableDiscriminationActivity"/>
-        <activity android:name="com.cnu_helper.l_cure.MainActivity">
+        <activity android:name="com.cnu_helper.l_cure.MainActivity"/>
+        <activity android:name="com.cnu_helper.l_cure.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

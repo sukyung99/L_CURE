@@ -39,7 +39,45 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (test.split("_")[0].equals("test")) {
+                // 실력 알아보기 아닌 경우
+                if (test == null || !test.split("_")[0].equals("test")) {
+                    if ((asw_chosung.getText() == tv_chosung.getText()) &&
+                            (asw_jwungsung.getText() == tv_jwungsung.getText()) &&
+                            (asw_jongsung.getText() == tv_jongsung.getText()) ) {
+                        if (quizCount == 5) {
+                            Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
+                            startActivityForResult(intent,5000);
+                            intent = new Intent(getApplicationContext(), PopupActivity.class);
+                            intent.putExtra("number", 7);
+                            intent.putExtra("imgName", "word_100");
+                            intent.putExtra("sex", sex);
+                            intent.putExtra("speed", speed);
+                            intent.putExtra("voice", voice);
+                            startActivityForResult(intent,5000);
+                        }
+                        else {
+                            Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                            intent.putExtra("number", 7);
+                            intent.putExtra("imgName", "word_100");
+                            intent.putExtra("sex", sex);
+                            intent.putExtra("speed", speed);
+                            intent.putExtra("voice", voice);
+                            startActivityForResult(intent, 5000);
+                            showNext();
+                        }
+                    }
+                    else {
+                        Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                        intent.putExtra("number", 8);
+                        intent.putExtra("sex", sex);
+                        intent.putExtra("speed", speed);
+                        intent.putExtra("voice", voice);
+                        startActivityForResult(intent,5000);
+                        // again
+                    }
+                }
+                // 실력 알아보기
+                else if (test.split("_")[0].equals("test")) {
                     if ((asw_chosung.getText() == tv_chosung.getText()) &&
                             (asw_jwungsung.getText() == tv_jwungsung.getText()) &&
                             (asw_jongsung.getText() == tv_jongsung.getText())) test = test + "o";
@@ -51,40 +89,6 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
                     intent.putExtra("speed", speed);
                     intent.putExtra("voice", voice);
                     startActivityForResult(intent, 5000);
-                }
-                else if ((asw_chosung.getText() == tv_chosung.getText()) &&
-                        (asw_jwungsung.getText() == tv_jwungsung.getText()) &&
-                        (asw_jongsung.getText() == tv_jongsung.getText()) ) {
-                     if (quizCount == 5) {
-                        Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
-                        startActivityForResult(intent,5000);
-                        intent = new Intent(getApplicationContext(), PopupActivity.class);
-                        intent.putExtra("number", 7);
-                        intent.putExtra("imgName", "word_100");
-                        intent.putExtra("sex", sex);
-                        intent.putExtra("speed", speed);
-                        intent.putExtra("voice", voice);
-                        startActivityForResult(intent,5000);
-                    }
-                    else {
-                        Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
-                        intent.putExtra("number", 7);
-                        intent.putExtra("imgName", "word_100");
-                        intent.putExtra("sex", sex);
-                        intent.putExtra("speed", speed);
-                        intent.putExtra("voice", voice);
-                        startActivityForResult(intent, 5000);
-                        showNext();
-                    }
-                }
-                else {
-                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
-                    intent.putExtra("number", 8);
-                    intent.putExtra("sex", sex);
-                    intent.putExtra("speed", speed);
-                    intent.putExtra("voice", voice);
-                    startActivityForResult(intent,5000);
-                    // again
                 }
             }
         });

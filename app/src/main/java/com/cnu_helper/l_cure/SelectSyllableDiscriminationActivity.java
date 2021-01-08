@@ -122,29 +122,31 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity impl
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (test.split("_")[0].equals("test")) {
-                    testStageResult("o");
+                if (test == null || !test.split("_")[0].equals("test")) {
+                    if (quizCount == 5) {
+                        Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
+                        startActivityForResult(intent,5000);
+                        intent = new Intent(getApplicationContext(), PopupActivity.class);
+                        intent.putExtra("number", 7);
+                        intent.putExtra("imgName", imgName);
+                        sex = intent.getStringExtra("sex");
+                        speed = intent.getStringExtra("speed");
+                        voice = intent.getStringExtra("voice");
+                        startActivityForResult(intent,5000);
+                    } else {
+                        quizCount++;
+                        Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                        intent.putExtra("number", 7);
+                        intent.putExtra("imgName", imgName);
+                        sex = intent.getStringExtra("sex");
+                        speed = intent.getStringExtra("speed");
+                        voice = intent.getStringExtra("voice");
+                        startActivityForResult(intent,5000);
+                        makeQuestion();
+                    }
                 }
-                else if (quizCount == 5) {
-                    Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
-                    startActivityForResult(intent,5000);
-                    intent = new Intent(getApplicationContext(), PopupActivity.class);
-                    intent.putExtra("number", 7);
-                    intent.putExtra("imgName", imgName);
-                    sex = intent.getStringExtra("sex");
-                    speed = intent.getStringExtra("speed");
-                    voice = intent.getStringExtra("voice");
-                    startActivityForResult(intent,5000);
-                } else {
-                    quizCount++;
-                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
-                    intent.putExtra("number", 7);
-                    intent.putExtra("imgName", imgName);
-                    sex = intent.getStringExtra("sex");
-                    speed = intent.getStringExtra("speed");
-                    voice = intent.getStringExtra("voice");
-                    startActivityForResult(intent,5000);
-                    makeQuestion();
+                else if (test.split("_")[0].equals("test")) {
+                    testStageResult("o");
                 }
             }
         });
@@ -152,10 +154,7 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity impl
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (test.split("_")[0].equals("test")) {
-                    testStageResult("x");
-                }
-                else {
+                if (test == null || !test.split("_")[0].equals("test")) {
                     Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                     intent.putExtra("number", 8);
                     sex = intent.getStringExtra("sex");
@@ -163,6 +162,9 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity impl
                     voice = intent.getStringExtra("voice");
                     startActivityForResult(intent,5000);
                     // again
+                }
+                else if (test.split("_")[0].equals("test")) {
+                    testStageResult("x");
                 }
             }
         });
@@ -170,10 +172,7 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity impl
         three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (test.split("_")[0].equals("test")) {
-                    testStageResult("x");
-                }
-                else {
+                if (test == null || !test.split("_")[0].equals("test")) {
                     Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                     intent.putExtra("number", 8);
                     sex = intent.getStringExtra("sex");
@@ -181,6 +180,9 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity impl
                     voice = intent.getStringExtra("voice");
                     startActivityForResult(intent,5000);
                     // again
+                }
+                else if (test.split("_")[0].equals("test")) {
+                    testStageResult("x");
                 }
             }
         });

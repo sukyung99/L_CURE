@@ -145,7 +145,41 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
                 }
             }
 
-            if (test.split("_")[0].equals("test")) {
+            if (test == null || !test.split("_")[0].equals("test")) {
+                if (correct) {
+                    // correct answer
+                    if(quizCount==5) {
+                        Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
+                        startActivityForResult(intent,5000);
+                        intent = new Intent(getApplicationContext(), PopupActivity.class);
+                        intent.putExtra("number", 7);
+                        intent.putExtra("imgName", answer_word.getImg_name());
+                        sex = intent.getStringExtra("sex");
+                        speed = intent.getStringExtra("speed");
+                        voice = intent.getStringExtra("voice");
+                        startActivityForResult(intent,5000);
+                    } else {
+                        Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                        intent.putExtra("number", 7);
+                        intent.putExtra("imgName", answer_word.getImg_name());
+                        sex = intent.getStringExtra("sex");
+                        speed = intent.getStringExtra("speed");
+                        voice = intent.getStringExtra("voice");
+                        startActivityForResult(intent,5000);
+
+                        showNext();
+                    }
+                } else{
+                    // wrong answer
+                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("number", 8);
+                    sex = intent.getStringExtra("sex");
+                    speed = intent.getStringExtra("speed");
+                    voice = intent.getStringExtra("voice");
+                    startActivityForResult(intent,5000);
+                }
+            }
+            else if (test.split("_")[0].equals("test")) {
                 if (correct) test = test + "o";
                 else test = test + "x";
 
@@ -156,50 +190,6 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
                 voice = intent.getStringExtra("voice");
                 startActivityForResult(intent, 5000);
             }
-
-            else if (correct) {
-                // correct answer
-                if(quizCount==5) {
-                    if (test.equals("test")) {
-                        Intent intent = new Intent(getApplicationContext(), SelectPhonemicSegmentationActivity.class);
-                        intent.putExtra("test", test);
-                        sex = intent.getStringExtra("sex");
-                        speed = intent.getStringExtra("speed");
-                        voice = intent.getStringExtra("voice");
-                        startActivityForResult(intent, 5000);
-                    }
-                    else {
-                        Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
-                        startActivityForResult(intent,5000);
-                        intent = new Intent(getApplicationContext(), PopupActivity.class);
-                        intent.putExtra("number", 7);
-                        intent.putExtra("imgName", answer_word.getImg_name());
-                        sex = intent.getStringExtra("sex");
-                        speed = intent.getStringExtra("speed");
-                        voice = intent.getStringExtra("voice");
-                        startActivityForResult(intent,5000);
-                    }
-                } else {
-                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
-                    intent.putExtra("number", 7);
-                    intent.putExtra("imgName", answer_word.getImg_name());
-                    sex = intent.getStringExtra("sex");
-                    speed = intent.getStringExtra("speed");
-                    voice = intent.getStringExtra("voice");
-                    startActivityForResult(intent,5000);
-
-                    showNext();
-                }
-            } else{
-                // wrong answer
-                Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
-                intent.putExtra("number", 8);
-                sex = intent.getStringExtra("sex");
-                speed = intent.getStringExtra("speed");
-                voice = intent.getStringExtra("voice");
-                startActivityForResult(intent,5000);
-            }
-
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

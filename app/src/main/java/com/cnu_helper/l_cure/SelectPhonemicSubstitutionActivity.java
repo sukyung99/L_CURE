@@ -226,7 +226,42 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
                 }
             }
 
-            if (test.split("_")[0].equals("test")) {
+            // 실력 알아보기 아닌 경우
+            if (test == null || !test.split("_")[0].equals("test")) {
+                if (correct) {
+                    // correct answer
+                    if(quizCount==5) {
+                        Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
+                        startActivityForResult(intent,5000);
+                        intent = new Intent(getApplicationContext(), PopupActivity.class);
+                        intent.putExtra("number", 7);
+                        intent.putExtra("imgName", answer_word.getImg_name());
+                        intent.putExtra("sex", sex);
+                        intent.putExtra("speed", speed);
+                        intent.putExtra("voice", voice);
+                        startActivityForResult(intent,5000);
+                    } else {
+                        Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                        intent.putExtra("number", 7);
+                        intent.putExtra("imgName", answer_word.getImg_name());
+                        intent.putExtra("sex", sex);
+                        intent.putExtra("speed", speed);
+                        intent.putExtra("voice", voice);
+                        startActivityForResult(intent,5000);
+
+                        showNext();
+                    }
+                } else{
+                    // wrong answer
+                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("number", 8);
+                    intent.putExtra("sex", sex);
+                    intent.putExtra("speed", speed);
+                    intent.putExtra("voice", voice);
+                    startActivityForResult(intent,5000);
+                }
+            }
+            else if (test.split("_")[0].equals("test")) {
                 if (correct) test = test + "o";
                 else test = test + "x";
 
@@ -236,39 +271,6 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
                 intent.putExtra("speed", speed);
                 intent.putExtra("voice", voice);
                 startActivityForResult(intent, 5000);
-            }
-
-            else if (correct) {
-                // correct answer
-                if(quizCount==5) {
-                    Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
-                    startActivityForResult(intent,5000);
-                    intent = new Intent(getApplicationContext(), PopupActivity.class);
-                    intent.putExtra("number", 7);
-                    intent.putExtra("imgName", answer_word.getImg_name());
-                    intent.putExtra("sex", sex);
-                    intent.putExtra("speed", speed);
-                    intent.putExtra("voice", voice);
-                    startActivityForResult(intent,5000);
-                } else {
-                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
-                    intent.putExtra("number", 7);
-                    intent.putExtra("imgName", answer_word.getImg_name());
-                    intent.putExtra("sex", sex);
-                    intent.putExtra("speed", speed);
-                    intent.putExtra("voice", voice);
-                    startActivityForResult(intent,5000);
-
-                    showNext();
-                }
-            } else{
-                // wrong answer
-                Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
-                intent.putExtra("number", 8);
-                intent.putExtra("sex", sex);
-                intent.putExtra("speed", speed);
-                intent.putExtra("voice", voice);
-                startActivityForResult(intent,5000);
             }
 
         }

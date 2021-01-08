@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white" >
+
+    <ImageView
+        android:id="@+id/lcure_logo"
+        android:layout_width="400px"
+        android:layout_height="400px"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/lcure_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/barrier_free"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="184dp"
+        android:text="이 앱은 현대오토에버와 서울사회복지공동모금회가 지원하는 배리어프리 앱 개발 콘테스트의 출품작입니다."
+        android:textAlignment="center"
+        android:textColor="#222222"
+        android:textSize="25px"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lcure_logo" />
+
+    <ImageView
+        android:id="@+id/kakao_logo"
+        android:layout_width="1020px"
+        android:layout_height="150px"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/kakao_voice_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/barrier_free" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

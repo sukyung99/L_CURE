@@ -86,7 +86,7 @@ public class SelectSyllableCountActivity extends AppCompatActivity {
     }
 
     private void verifyCorrect(Button one) {
-        if (test == null){
+        if (test == null || !test.equals("test")) {
             if (one.getText().equals(Integer.toString(word.getText().length()))) {
                 // correct
                 if (quizCount == 5) {
