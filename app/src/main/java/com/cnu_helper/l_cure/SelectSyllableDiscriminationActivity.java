@@ -9,11 +9,16 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.kakao.sdk.newtoneapi.SpeechRecognizerManager;
+import com.kakao.sdk.newtoneapi.TextToSpeechClient;
+import com.kakao.sdk.newtoneapi.TextToSpeechListener;
+import com.kakao.sdk.newtoneapi.TextToSpeechManager;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class SelectSyllableDiscriminationActivity extends AppCompatActivity {
+public class SelectSyllableDiscriminationActivity extends AppCompatActivity implements TextToSpeechListener{
     Button back, one, two, three, speaker;
     private int quizCount = 1;
     private List<Words> word_list; // words 리스트
@@ -22,6 +27,7 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity {
     private int var = 0;
     private String question, test;
     String sex, speed, voice;
+    private TextToSpeechClient ttsClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +57,14 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity {
         speaker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // speak(question)
+                ttsClient = new TextToSpeechClient.Builder()
+                        .setSpeechMode(TextToSpeechClient.NEWTONE_TALK_2)     // 음성합성방식
+                        .setSpeechSpeed(0.9D)
+                        .setSpeechVoice(TextToSpeechClient.VOICE_WOMAN_READ_CALM)
+                        .setListener(SelectSyllableDiscriminationActivity.this)
+                        .build();
+                ttsClient.play(question);
+                ttsClient = null;
                 return;
             }
         });
@@ -190,5 +203,22 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity {
         test = test + this_res;
         String[] result = test.split("_")[1].split(""); // 여기가 실력알아보기 결과!!! (예시: ooxxox)
 //        Toast.makeText(getApplicationContext(), test.split("_")[1], Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onFinished() {
+
+    }
+
+    @Override
+    public void onError(int code, String message) {
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        TextToSpeechManager.getInstance().finalizeLibrary();
+        SpeechRecognizerManager.getInstance().finalizeLibrary();
     }
 }

@@ -9,11 +9,16 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SelectMyWordActivity extends AppCompatActivity implements ViewStub.OnClickListener{
+import com.kakao.sdk.newtoneapi.SpeechRecognizerManager;
+import com.kakao.sdk.newtoneapi.TextToSpeechClient;
+import com.kakao.sdk.newtoneapi.TextToSpeechListener;
+import com.kakao.sdk.newtoneapi.TextToSpeechManager;
+
+public class SelectMyWordActivity extends AppCompatActivity implements ViewStub.OnClickListener, TextToSpeechListener {
     private Words word;
     private TextView tv_my_word, tv_writing_word;
     private Button  back, btn_speaker, btn_photo, btn_save;
-
+    private TextToSpeechClient ttsClient;
     private WritingView writingview;
 
     @Override
@@ -57,7 +62,15 @@ public class SelectMyWordActivity extends AppCompatActivity implements ViewStub.
         btn_speaker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // 코드 추가..
+                ttsClient = new TextToSpeechClient.Builder()
+                        .setSpeechMode(TextToSpeechClient.NEWTONE_TALK_2)     // 음성합성방식
+                        .setSpeechSpeed(0.9D)
+                        .setSpeechVoice(TextToSpeechClient.VOICE_WOMAN_READ_CALM)
+                        .setListener(SelectMyWordActivity.this)
+                        .build();
+                ttsClient.play(word.getWord());
+                ttsClient = null;
+                return;
             }
         });
 
@@ -75,5 +88,22 @@ public class SelectMyWordActivity extends AppCompatActivity implements ViewStub.
                 break;
 
         }
+    }
+
+    @Override
+    public void onFinished() {
+
+    }
+
+    @Override
+    public void onError(int code, String message) {
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        TextToSpeechManager.getInstance().finalizeLibrary();
+        SpeechRecognizerManager.getInstance().finalizeLibrary();
     }
 }
