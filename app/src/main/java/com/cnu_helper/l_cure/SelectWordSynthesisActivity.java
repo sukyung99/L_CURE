@@ -15,7 +15,7 @@ import java.util.Locale;
 import java.util.Random;
 
 public class SelectWordSynthesisActivity extends AppCompatActivity {
-    Button back, setting;
+    Button back;
     Button mic;
     TextView word1, word2;
     private List<Words> word_list; // words 리스트
@@ -24,6 +24,7 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
     private Words answer_word;
     private int word_index;
     private String test;
+    String sex, speed, voice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,9 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
 
         Intent intent =  getIntent();
         test = intent.getStringExtra("test");
+        sex = intent.getStringExtra("sex");
+        speed = intent.getStringExtra("speed");
+        voice = intent.getStringExtra("voice");
 
         word1 = (TextView) findViewById(R.id.word_1);
         word2 = (TextView) findViewById(R.id.word_2);
@@ -147,6 +151,9 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), SelectPhonemicSegmentationActivity.class);
                 intent.putExtra("test", test);
+                sex = intent.getStringExtra("sex");
+                speed = intent.getStringExtra("speed");
+                voice = intent.getStringExtra("voice");
                 startActivityForResult(intent, 5000);
             }
 
@@ -156,6 +163,9 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
                     if (test.equals("test")) {
                         Intent intent = new Intent(getApplicationContext(), SelectPhonemicSegmentationActivity.class);
                         intent.putExtra("test", test);
+                        sex = intent.getStringExtra("sex");
+                        speed = intent.getStringExtra("speed");
+                        voice = intent.getStringExtra("voice");
                         startActivityForResult(intent, 5000);
                     }
                     else {
@@ -164,12 +174,18 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
                         intent = new Intent(getApplicationContext(), PopupActivity.class);
                         intent.putExtra("number", 7);
                         intent.putExtra("imgName", answer_word.getImg_name());
+                        sex = intent.getStringExtra("sex");
+                        speed = intent.getStringExtra("speed");
+                        voice = intent.getStringExtra("voice");
                         startActivityForResult(intent,5000);
                     }
                 } else {
                     Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                     intent.putExtra("number", 7);
                     intent.putExtra("imgName", answer_word.getImg_name());
+                    sex = intent.getStringExtra("sex");
+                    speed = intent.getStringExtra("speed");
+                    voice = intent.getStringExtra("voice");
                     startActivityForResult(intent,5000);
 
                     showNext();
@@ -178,6 +194,9 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
                 // wrong answer
                 Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                 intent.putExtra("number", 8);
+                sex = intent.getStringExtra("sex");
+                speed = intent.getStringExtra("speed");
+                voice = intent.getStringExtra("voice");
                 startActivityForResult(intent,5000);
             }
 

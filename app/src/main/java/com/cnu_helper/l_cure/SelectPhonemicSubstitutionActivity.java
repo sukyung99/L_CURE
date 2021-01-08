@@ -15,7 +15,7 @@ import java.util.Locale;
 import java.util.Random;
 
 public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
-    Button back, setting;
+    Button back;
     Button mic;
     TextView tv_word, tv_origin_p, tv_new_p;
     private List<Words> word_list; // words 리스트
@@ -24,6 +24,7 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
     private Words answer_word;
     private int word_index;
     private String prev_word, test;
+    String sex, speed, voice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,9 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
 
         Intent intent =  getIntent();
         test = intent.getStringExtra("test");
+        sex = intent.getStringExtra("sex");
+        speed = intent.getStringExtra("speed");
+        voice = intent.getStringExtra("voice");
 
         tv_word = (TextView) findViewById(R.id.word);
         tv_origin_p = (TextView) findViewById(R.id.origin_phonemic);
@@ -228,6 +232,9 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(getApplicationContext(), SelectSyllableDiscriminationActivity.class);
                 intent.putExtra("test", test);
+                intent.putExtra("sex", sex);
+                intent.putExtra("speed", speed);
+                intent.putExtra("voice", voice);
                 startActivityForResult(intent, 5000);
             }
 
@@ -239,11 +246,17 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
                     intent = new Intent(getApplicationContext(), PopupActivity.class);
                     intent.putExtra("number", 7);
                     intent.putExtra("imgName", answer_word.getImg_name());
+                    intent.putExtra("sex", sex);
+                    intent.putExtra("speed", speed);
+                    intent.putExtra("voice", voice);
                     startActivityForResult(intent,5000);
                 } else {
                     Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                     intent.putExtra("number", 7);
                     intent.putExtra("imgName", answer_word.getImg_name());
+                    intent.putExtra("sex", sex);
+                    intent.putExtra("speed", speed);
+                    intent.putExtra("voice", voice);
                     startActivityForResult(intent,5000);
 
                     showNext();
@@ -252,6 +265,9 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
                 // wrong answer
                 Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                 intent.putExtra("number", 8);
+                intent.putExtra("sex", sex);
+                intent.putExtra("speed", speed);
+                intent.putExtra("voice", voice);
                 startActivityForResult(intent,5000);
             }
 

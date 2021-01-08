@@ -34,12 +34,6 @@
             android:textColor="@color/white"
             android:textSize="50dp" />
 
-        <Button
-            android:id="@+id/setting"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@drawable/setting_drawable" />
     </LinearLayout>
 
     <LinearLayout

@@ -13,13 +13,14 @@ import java.util.List;
 import java.util.Random;
 
 public class SelectSyllableCountActivity extends AppCompatActivity {
-    Button back, setting;
+    Button back;
     Button one, two, three;
     TextView word;
     private List<Words> word_list; // words 리스트
     private List<Words> new_word_list = new ArrayList<>();;
     private int quizCount = 1;
     private String imgName, test;
+    String sex, speed, voice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,9 @@ public class SelectSyllableCountActivity extends AppCompatActivity {
 
         Intent intent =  getIntent();
         test = intent.getStringExtra("test");
+        sex = intent.getStringExtra("sex");
+        speed = intent.getStringExtra("speed");
+        voice = intent.getStringExtra("voice");
 
         // words 데이터베이스 load
         initLoadDB();
@@ -82,44 +86,50 @@ public class SelectSyllableCountActivity extends AppCompatActivity {
     }
 
     private void verifyCorrect(Button one) {
-        if (test.equals("test")) {
-            if (one.getText().equals(Integer.toString(word.getText().length()))) test = test + "_o";
-            else test = test + "_x";
-
-            Intent intent = new Intent(getApplicationContext(), SelectWordSynthesisActivity.class);
-            intent.putExtra("test", test);
-            startActivityForResult(intent, 5000);
-        }
-
-        else if (one.getText().equals(Integer.toString(word.getText().length()))) {
-            // correct
-            if (quizCount == 5) {
-                if (test.equals("test")) {
-                    Intent intent = new Intent(getApplicationContext(), SelectWordSynthesisActivity.class);
-                    intent.putExtra("test", test);
-                    startActivityForResult(intent, 5000);
-                }
-                else {
+        if (test == null){
+            if (one.getText().equals(Integer.toString(word.getText().length()))) {
+                // correct
+                if (quizCount == 5) {
                     Intent intent = new Intent(getApplicationContext(), SelectImprovingSkillsActivity.class);
                     startActivityForResult(intent,5000);
                     intent = new Intent(getApplicationContext(), PopupActivity.class);
                     intent.putExtra("number", 7);
                     intent.putExtra("imgName", imgName);
+                    sex = intent.getStringExtra("sex");
+                    speed = intent.getStringExtra("speed");
+                    voice = intent.getStringExtra("voice");
                     startActivityForResult(intent,5000);
+                } else {
+                    quizCount++;
+                    Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
+                    intent.putExtra("number", 7);
+                    intent.putExtra("imgName", imgName);
+                    sex = intent.getStringExtra("sex");
+                    speed = intent.getStringExtra("speed");
+                    voice = intent.getStringExtra("voice");
+                    startActivityForResult(intent,5000);
+                    showNext();
                 }
             } else {
-                quizCount++;
                 Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
-                intent.putExtra("number", 7);
-                intent.putExtra("imgName", imgName);
+                intent.putExtra("number", 8);
+                sex = intent.getStringExtra("sex");
+                speed = intent.getStringExtra("speed");
+                voice = intent.getStringExtra("voice");
                 startActivityForResult(intent,5000);
-                showNext();
+                // again
             }
-        } else {
-            Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
-            intent.putExtra("number", 8);
-            startActivityForResult(intent,5000);
-            // again
+        }
+        else if (test.equals("test")) {
+            if (one.getText().equals(Integer.toString(word.getText().length()))) test = test + "_o";
+            else test = test + "_x";
+
+            Intent intent = new Intent(getApplicationContext(), SelectWordSynthesisActivity.class);
+            intent.putExtra("test", test);
+            sex = intent.getStringExtra("sex");
+            speed = intent.getStringExtra("speed");
+            voice = intent.getStringExtra("voice");
+            startActivityForResult(intent, 5000);
         }
     }
 

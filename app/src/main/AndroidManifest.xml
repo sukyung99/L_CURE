@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +15,10 @@
         android:roundIcon="@mipmap/icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
+        <meta-data
+            android:name="com.kakao.sdk.AppKey"
+            android:value="4d8897bea5af9b23ff752f955c77e701"/>
+        <activity android:name="com.cnu_helper.l_cure.SelectSettingsActivity"/>
         <activity android:name="com.cnu_helper.l_cure.SelectMyWordActivity"/>
         <activity android:name="com.cnu_helper.l_cure.SelectMyWordStageActivity"/>
         <activity android:name="com.cnu_helper.l_cure.SelectImprovingSkillsActivity"/>

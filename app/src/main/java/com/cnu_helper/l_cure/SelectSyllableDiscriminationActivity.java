@@ -21,6 +21,7 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity {
     private String get_word, wrong_word_1, wrong_word_2;
     private int var = 0;
     private String question, test;
+    String sex, speed, voice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,9 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity {
 
         Intent intent =  getIntent();
         test = intent.getStringExtra("test");
+        sex = intent.getStringExtra("sex");
+        speed = intent.getStringExtra("speed");
+        voice = intent.getStringExtra("voice");
 
         // words 데이터베이스 load
         initLoadDB();
@@ -114,12 +118,18 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity {
                     intent = new Intent(getApplicationContext(), PopupActivity.class);
                     intent.putExtra("number", 7);
                     intent.putExtra("imgName", imgName);
+                    sex = intent.getStringExtra("sex");
+                    speed = intent.getStringExtra("speed");
+                    voice = intent.getStringExtra("voice");
                     startActivityForResult(intent,5000);
                 } else {
                     quizCount++;
                     Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                     intent.putExtra("number", 7);
                     intent.putExtra("imgName", imgName);
+                    sex = intent.getStringExtra("sex");
+                    speed = intent.getStringExtra("speed");
+                    voice = intent.getStringExtra("voice");
                     startActivityForResult(intent,5000);
                     makeQuestion();
                 }
@@ -135,6 +145,9 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity {
                 else {
                     Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                     intent.putExtra("number", 8);
+                    sex = intent.getStringExtra("sex");
+                    speed = intent.getStringExtra("speed");
+                    voice = intent.getStringExtra("voice");
                     startActivityForResult(intent,5000);
                     // again
                 }
@@ -150,6 +163,9 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity {
                 else {
                     Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                     intent.putExtra("number", 8);
+                    sex = intent.getStringExtra("sex");
+                    speed = intent.getStringExtra("speed");
+                    voice = intent.getStringExtra("voice");
                     startActivityForResult(intent,5000);
                     // again
                 }

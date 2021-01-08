@@ -11,13 +11,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.Random;
 
 public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
-    private Button back, setting;
+    private Button back;
     private Button tv_chosung, tv_jwungsung, tv_jongsung, f_chosung, f_jwungsung, f_jongsung, check;
     private TextView tv_word, asw_chosung, asw_jwungsung, asw_jongsung;
     private int quizCount = 1;
     private boolean set1, set2, set3;
     Random random = new Random();
     private String test;
+    String sex, speed, voice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,9 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
 
         Intent intent =  getIntent();
         test = intent.getStringExtra("test");
+        sex = intent.getStringExtra("sex");
+        speed = intent.getStringExtra("speed");
+        voice = intent.getStringExtra("voice");
 
         setRandomButton();
 
@@ -43,6 +47,9 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(getApplicationContext(), SelectPhonemicSynthesisActivity.class);
                     intent.putExtra("test", test);
+                    intent.putExtra("sex", sex);
+                    intent.putExtra("speed", speed);
+                    intent.putExtra("voice", voice);
                     startActivityForResult(intent, 5000);
                 }
                 else if ((asw_chosung.getText() == tv_chosung.getText()) &&
@@ -54,12 +61,18 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
                         intent = new Intent(getApplicationContext(), PopupActivity.class);
                         intent.putExtra("number", 7);
                         intent.putExtra("imgName", "word_100");
+                        intent.putExtra("sex", sex);
+                        intent.putExtra("speed", speed);
+                        intent.putExtra("voice", voice);
                         startActivityForResult(intent,5000);
                     }
                     else {
                         Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                         intent.putExtra("number", 7);
                         intent.putExtra("imgName", "word_100");
+                        intent.putExtra("sex", sex);
+                        intent.putExtra("speed", speed);
+                        intent.putExtra("voice", voice);
                         startActivityForResult(intent, 5000);
                         showNext();
                     }
@@ -67,6 +80,9 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
                 else {
                     Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                     intent.putExtra("number", 8);
+                    intent.putExtra("sex", sex);
+                    intent.putExtra("speed", speed);
+                    intent.putExtra("voice", voice);
                     startActivityForResult(intent,5000);
                     // again
                 }
