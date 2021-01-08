@@ -173,6 +173,12 @@ public class SelectSyllableDiscriminationActivity extends AppCompatActivity {
     private void testStageResult (String this_res) {
         test = test + this_res;
         String[] result = test.split("_")[1].split(""); // 여기가 실력알아보기 결과!!! (예시: ooxxox)
-//        Toast.makeText(getApplicationContext(), test.split("_")[1], Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult(intent,5000);
+
+        intent = new Intent(getApplicationContext(), PopupActivity.class);
+        intent.putExtra("test", result);
+        intent.putExtra("number", 9);
+        startActivityForResult(intent,5000);
     }
 }
