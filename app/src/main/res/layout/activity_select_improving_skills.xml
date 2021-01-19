@@ -7,12 +7,11 @@
     android:background="@color/white"
     tools:context=".SelectImprovingSkillsActivity">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:background="@color/green"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,19 +21,27 @@
             android:id="@+id/back"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@drawable/back_drawable" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/back_drawable"
+            app:layout_constraintEnd_toStartOf="@+id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="237dp"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="86dp"
+            android:layout_marginRight="86dp"
             android:gravity="center_horizontal"
             android:text="L-CURE"
             android:textColor="@color/white"
-            android:textSize="50dp" />
+            android:textSize="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/back"
+            app:layout_constraintTop_toTopOf="@+id/back" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -62,9 +69,12 @@
         android:id="@+id/syllable_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="35dp"
         android:layout_marginTop="25dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/syllable_count_drawable"
+        app:layout_constraintEnd_toStartOf="@+id/word_synthesis"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
@@ -73,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="35dp"
         android:background="@drawable/word_synthesis_drawable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
@@ -82,18 +92,21 @@
         android:id="@+id/phonemic_fractionation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="35dp"
         android:layout_marginTop="25dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/phonemic_fractionation_drawable"
+        app:layout_constraintEnd_toStartOf="@+id/phonemic_synthesis"
+        app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/syllable_count"/>
+        app:layout_constraintTop_toBottomOf="@+id/syllable_count" />
 
     <Button
         android:id="@+id/phonemic_synthesis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="35dp"
         android:background="@drawable/phonemic_synthesis_drawable"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/word_synthesis" />
@@ -102,20 +115,29 @@
         android:id="@+id/phonemic_substitution"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="25dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/phonemic_substitution_drawable"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/syllabic_discrimination"
+        app:layout_constraintHorizontal_bias="0.151"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phonemic_fractionation"/>
+        app:layout_constraintTop_toBottomOf="@+id/phonemic_fractionation"
+        app:layout_constraintVertical_bias="0.021" />
 
     <Button
         android:id="@+id/syllabic_discrimination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/syllabic_discrimination_drawable"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phonemic_synthesis" />
+        app:layout_constraintTop_toBottomOf="@+id/phonemic_synthesis"
+        app:layout_constraintVertical_bias="0.014" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

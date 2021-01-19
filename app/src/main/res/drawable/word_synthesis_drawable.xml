@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:drawable="@drawable/word_synthesis"
-        android:height="170dp"
-        android:width="170dp"
+        android:height="150dp"
+        android:width="150dp"
         ></item>
 </layer-list>

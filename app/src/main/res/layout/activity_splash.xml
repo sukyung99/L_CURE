@@ -21,22 +21,31 @@
         android:id="@+id/barrier_free"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="220dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="8dp"
         android:text="이 애플리케이션은 \n현대오토에버와 서울사회복지공동모금회가 지원하는 \n배리어프리 앱 개발 콘테스트의 출품작입니다."
         android:textAlignment="center"
         android:textColor="#222222"
         android:textSize="25px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lcure_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/explain" />
 
     <ImageView
         android:id="@+id/kakao_logo"
         android:layout_width="1020px"
         android:layout_height="150px"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/kakao_voice_logo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barrier_free" />
+        app:layout_constraintTop_toBottomOf="@+id/barrier_free"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/explain"

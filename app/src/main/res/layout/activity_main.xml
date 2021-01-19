@@ -7,12 +7,11 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout9"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:background="@color/green"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,75 +21,95 @@
             android:id="@+id/x"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
             android:autoSizeTextType="uniform"
-            android:drawablePadding="8dp" />
+            android:drawablePadding="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="225dp"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="L-CURE"
+            android:textColor="@color/white"
             android:textSize="50dp"
-            android:textColor="@color/white"/>
+            app:layout_constraintEnd_toStartOf="@+id/setting"
+            app:layout_constraintStart_toEndOf="@+id/x"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/setting"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@drawable/setting_drawable" />
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:background="@drawable/setting_drawable"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/title"
+            app:layout_constraintTop_toTopOf="@+id/title" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/learn_skills"
-        android:layout_width="330dp"
-        android:layout_height="180dp"
+        android:layout_width="300dp"
+        android:layout_height="160dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="33dp"
         android:layout_marginEnd="5dp"
-        android:text="실력 알아보기"
-        android:textSize="30dp"
-        android:textColor="@color/black"
         android:background="@color/blue"
         android:drawableLeft="@drawable/learn_drawable"
+        android:text="실력 알아보기"
+        android:textColor="@color/black"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout9" />
 
     <Button
         android:id="@+id/improving_skills"
-        android:layout_width="330dp"
-        android:layout_height="180dp"
+        android:layout_width="300dp"
+        android:layout_height="160dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="33dp"
         android:layout_marginEnd="5dp"
-        android:text="실력 키우기"
-        android:textSize="30dp"
-        android:textColor="@color/black"
         android:background="@color/pink"
         android:drawableLeft="@drawable/improving_drawable"
+        android:text="실력 키우기"
+        android:textColor="@color/black"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/learn_skills" />
 
     <Button
         android:id="@+id/my_own_words"
-        android:layout_width="330dp"
-        android:layout_height="180dp"
+        android:layout_width="300dp"
+        android:layout_height="160dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="33dp"
         android:layout_marginEnd="5dp"
-        android:text="나만의 단어"
-        android:textSize="30dp"
-        android:textColor="@color/black"
+        android:layout_marginBottom="8dp"
         android:background="@color/whiteGreen"
         android:drawableLeft="@drawable/words_drawable"
+        android:text="나만의 단어"
+        android:textColor="@color/black"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/improving_skills" />
+        app:layout_constraintTop_toBottomOf="@+id/improving_skills"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

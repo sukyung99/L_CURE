@@ -7,12 +7,11 @@
     android:background="@color/white"
     tools:context=".SelectSyllableCountActivity">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="65dp"
         android:background="@color/green"
-        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,19 +21,27 @@
             android:id="@+id/back"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@drawable/back_drawable" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/back_drawable"
+            app:layout_constraintEnd_toStartOf="@+id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="237dp"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="86dp"
+            android:layout_marginRight="86dp"
             android:gravity="center_horizontal"
             android:text="L-CURE"
             android:textColor="@color/white"
-            android:textSize="50dp" />
+            android:textSize="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/back"
+            app:layout_constraintTop_toTopOf="@+id/back" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -87,8 +94,8 @@
         <Button
             android:id="@+id/board_1"
             android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:layout_marginTop="-30dp"
+            android:layout_height="210dp"
+            android:layout_marginTop="-40dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/note"
             app:layout_constraintRight_toLeftOf="@+id/board_2" />
@@ -108,8 +115,8 @@
         <Button
             android:id="@+id/board_2"
             android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:layout_marginTop="-30dp"
+            android:layout_height="210dp"
+            android:layout_marginTop="-40dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/note"
             app:layout_constraintLeft_toRightOf="@+id/board_1" />
@@ -117,12 +124,15 @@
 
     <Button
         android:id="@+id/mic"
-        android:layout_width="129dp"
-        android:layout_height="112dp"
-        android:layout_marginStart="140dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginEnd="8dp"
         android:background="@drawable/green_mic"
         android:textColor="@color/black"
         android:textSize="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.191"
         app:layout_constraintStart_toStartOf="@+id/linearLayout5"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout5" />
 
@@ -133,7 +143,7 @@
         android:gravity="center_horizontal"
         android:text="단어1"
         android:textColor="@color/black"
-        android:textSize="55dp"
+        android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout4"
         app:layout_constraintStart_toStartOf="@+id/linearLayout4"
@@ -146,7 +156,7 @@
         android:gravity="center_horizontal"
         android:text="단어2"
         android:textColor="@color/black"
-        android:textSize="55dp"
+        android:textSize="50dp"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
         app:layout_constraintStart_toStartOf="@+id/linearLayout5"
