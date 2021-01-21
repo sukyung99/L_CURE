@@ -58,11 +58,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:text="음성 선택"
         android:textColor="@color/black"
-        android:textSize="40dp"
+        android:textSize="35dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
@@ -71,9 +71,9 @@
 
     <Button
         android:id="@+id/man"
-        android:layout_width="160dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="18dp"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="18dp"
         android:background="@drawable/selector_man"
@@ -81,13 +81,14 @@
         android:textColor="@color/black"
         android:textSize="40dp"
         app:layout_constraintEnd_toStartOf="@+id/woman"
+        app:layout_constraintHorizontal_bias="0.348"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/select_sex" />
 
     <Button
         android:id="@+id/woman"
-        android:layout_width="160dp"
-        android:layout_height="70dp"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="36dp"
         android:background="@drawable/selector_woman"
@@ -102,11 +103,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="92dp"
         android:layout_marginEnd="8dp"
         android:text="음성 속도"
         android:textColor="@color/black"
-        android:textSize="40dp"
+        android:textSize="35dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
@@ -115,20 +116,20 @@
 
     <Button
         android:id="@+id/slow"
-        android:layout_width="120dp"
+        android:layout_width="110dp"
         android:layout_height="70dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/selector_slow"
         android:text="느리게"
         android:textColor="@color/black"
-        android:textSize="40dp"
+        android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/select_speed" />
 
     <Button
         android:id="@+id/regular"
-        android:layout_width="120dp"
+        android:layout_width="110dp"
         android:layout_height="70dp"
         android:layout_marginTop="12dp"
         android:layout_marginStart="8dp"
@@ -136,20 +137,20 @@
         android:background="@drawable/selector_regular"
         android:text="보통"
         android:textColor="@color/black"
-        android:textSize="40dp"
+        android:textSize="30dp"
         app:layout_constraintEnd_toStartOf="@+id/fast"
         app:layout_constraintStart_toEndOf="@+id/slow"
         app:layout_constraintTop_toBottomOf="@+id/select_speed" />
 
     <Button
         android:id="@+id/fast"
-        android:layout_width="120dp"
+        android:layout_width="110dp"
         android:layout_height="70dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/selector_fast"
         android:text="빠르게"
         android:textColor="@color/black"
-        android:textSize="40dp"
+        android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/regular" />
 
@@ -158,11 +159,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:text="음성 전원"
         android:textColor="@color/black"
-        android:textSize="40dp"
+        android:textSize="35dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
@@ -171,8 +172,8 @@
 
     <Button
         android:id="@+id/on"
-        android:layout_width="160dp"
-        android:layout_height="70dp"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
         android:layout_marginStart="18dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="18dp"
@@ -187,8 +188,8 @@
 
     <Button
         android:id="@+id/off"
-        android:layout_width="160dp"
-        android:layout_height="70dp"
+        android:layout_width="130dp"
+        android:layout_height="60dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="36dp"
         android:background="@drawable/selector_off"
@@ -203,7 +204,7 @@
         android:layout_width="110dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="88dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@color/blue"
@@ -212,9 +213,9 @@
         android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/select_voice"
-        app:layout_constraintVertical_bias="0.153" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
