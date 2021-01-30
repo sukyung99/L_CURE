@@ -37,6 +37,16 @@ public class SelectPhonemicSubstitutionActivity extends AppCompatActivity {
         speed = intent.getStringExtra("speed");
         voice = intent.getStringExtra("voice");
 
+        // 도움말 버튼
+        Button btn_information = (Button) findViewById(R.id.information);
+        btn_information.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ImprovingStartActivity.class);
+                startActivity(intent);
+            }
+        });
+
         tv_word = (TextView) findViewById(R.id.word);
         tv_origin_p = (TextView) findViewById(R.id.origin_phonemic);
         tv_new_p = (TextView) findViewById(R.id.new_phonemic);

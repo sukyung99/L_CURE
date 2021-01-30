@@ -73,11 +73,11 @@
 
         <LinearLayout
             android:id="@+id/linearLayout4"
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginStart="16dp"
             android:layout_marginTop="30dp"
+            android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
@@ -85,8 +85,8 @@
                 android:id="@+id/my_word"
                 android:layout_width="wrap_content"
                 android:layout_height="110dp"
-                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="100dp"
+                android:layout_marginBottom="5dp"
                 android:background="@drawable/square_drawable"
                 android:text="강"
                 android:textAlignment="center"
@@ -115,16 +115,16 @@
             <TextView
                 android:id="@+id/writing_word"
                 android:layout_width="match_parent"
-                android:layout_height="380dp"
+                android:layout_height="340dp"
                 android:text="강"
                 android:textAlignment="center"
                 android:textColor="#AFAFAF"
-                android:textSize="300dp" />
+                android:textSize="230dp" />
 
             <com.cnu_helper.l_cure.WritingView
                 android:id="@+id/writing_view"
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
+                android:layout_height="300dp"
                 android:background="#00000000"
                 android:layout_marginTop="-350dp"
                 android:layout_marginLeft="30dp"
@@ -134,6 +134,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <Button
                     android:id="@+id/show_photo"
                     android:layout_width="120dp"

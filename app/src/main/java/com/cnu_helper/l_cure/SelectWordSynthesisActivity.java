@@ -37,6 +37,16 @@ public class SelectWordSynthesisActivity extends AppCompatActivity {
         speed = intent.getStringExtra("speed");
         voice = intent.getStringExtra("voice");
 
+        // 도움말 버튼
+        Button btn_information = (Button) findViewById(R.id.information);
+        btn_information.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ImprovingStartActivity.class);
+                startActivity(intent);
+            }
+        });
+
         word1 = (TextView) findViewById(R.id.word_1);
         word2 = (TextView) findViewById(R.id.word_2);
 

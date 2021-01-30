@@ -1,6 +1,7 @@
 package com.cnu_helper.l_cure;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,24 @@ public class SelectImprovingSkillsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_improving_skills);
+
+        // 실력 키우기 도움말 창
+        SharedPreferences preferences = getSharedPreferences("b", MODE_PRIVATE);
+        int improvingviewshow = preferences.getInt("First", 0);
+        if(improvingviewshow != 1) {
+            Intent intent = new Intent(getApplicationContext(), ImprovingStartActivity.class);
+            startActivity(intent);
+        }
+
+        // 도움말 버튼
+        Button btn_information = (Button) findViewById(R.id.information);
+        btn_information.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ImprovingStartActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Intent intent = getIntent();
         sex = intent.getStringExtra("sex");

@@ -28,7 +28,7 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="\n단어를 색칠하여\n꾸며보아요." />
+            android:text="\n단어를 색칠하여\n나만의 단어를 만들어 보아요." />
 
 
     </LinearLayout>

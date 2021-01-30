@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -45,6 +46,24 @@ public class MainActivity extends AppCompatActivity implements TextToSpeechListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // l-cure 도움말 창
+        SharedPreferences preferences = getSharedPreferences("a", MODE_PRIVATE);
+        int firstviewshow = preferences.getInt("First", 0);
+        if(firstviewshow != 1) {
+            Intent intent = new Intent(MainActivity.this, FirstStartActivity.class);
+            startActivity(intent);
+        }
+
+        // 도움말 버튼
+        Button btn_information = (Button) findViewById(R.id.information);
+        btn_information.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FirstStartActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Intent intent = getIntent();
         sex = intent.getStringExtra("sex");
         speed = intent.getStringExtra("speed");
@@ -73,9 +92,10 @@ public class MainActivity extends AppCompatActivity implements TextToSpeechListe
         learn_skills.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SelectSyllableCountActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                 test = "test";
                 intent.putExtra("test", test);
+                intent.putExtra("number", 11);
                 intent.putExtra("sex", sex);
                 intent.putExtra("speed", speed);
                 intent.putExtra("voice", voice);
@@ -101,9 +121,10 @@ public class MainActivity extends AppCompatActivity implements TextToSpeechListe
         my_own_words.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SelectMyWordStageActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PopupActivity.class);
                 test = "no";
                 intent.putExtra("test", test);
+                intent.putExtra("number", 10);
                 intent.putExtra("sex", sex);
                 intent.putExtra("speed", speed);
                 intent.putExtra("voice", voice);

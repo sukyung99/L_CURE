@@ -18,18 +18,17 @@
         tools:context=".MainActivity">
 
         <Button
-            android:id="@+id/x"
+            android:id="@+id/setting"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
-            android:layout_marginRight="5dp"
             android:layout_marginBottom="5dp"
             android:autoSizeTextType="uniform"
-            android:drawablePadding="8dp"
+            android:background="@drawable/setting_drawable"
+            android:drawablePadding="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/title"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,16 +42,18 @@
             android:text="L-CURE"
             android:textColor="@color/white"
             android:textSize="50dp"
-            app:layout_constraintEnd_toStartOf="@+id/setting"
-            app:layout_constraintStart_toEndOf="@+id/x"
+            app:layout_constraintEnd_toStartOf="@+id/information"
+            app:layout_constraintStart_toEndOf="@+id/setting"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/setting"
+            android:id="@+id/information"
             style="?android:attr/borderlessButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/setting_drawable"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="7dp"
+            android:background="@drawable/help_icon"
+            android:backgroundTint="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/title"
             app:layout_constraintTop_toTopOf="@+id/title" />

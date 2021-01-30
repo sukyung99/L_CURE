@@ -31,6 +31,16 @@ public class SelectPhonemicSegmentationActivity extends AppCompatActivity {
         speed = intent.getStringExtra("speed");
         voice = intent.getStringExtra("voice");
 
+        // 도움말 버튼
+        Button btn_information = (Button) findViewById(R.id.information);
+        btn_information.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ImprovingStartActivity.class);
+                startActivity(intent);
+            }
+        });
+
         setRandomButton();
 
         tv_word = (TextView) findViewById(R.id.word);

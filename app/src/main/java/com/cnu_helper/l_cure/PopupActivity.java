@@ -66,6 +66,11 @@ public class PopupActivity extends Activity implements TextToSpeechListener {
                     "\n\n음소 합성 : " + test[3] +
                     "\n\n음소 대치 : " + test[4] +
                     "\n\n음절 변별 : " + test[5] + "\n");
+        }else if(number==10) {
+            setContentView(R.layout.special_popup);
+        }
+        else if(number==11) {
+            setContentView(R.layout.knowing_level_popup);
         }
 
         String voiceType = null;
@@ -189,6 +194,27 @@ public class PopupActivity extends Activity implements TextToSpeechListener {
             onBackPressed();
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.putExtra("result", "Close Popup");
+            intent.putExtra("sex", sex);
+            intent.putExtra("speed", speed);
+            intent.putExtra("voice", voice);
+            setResult(RESULT_OK, intent);
+            startActivityForResult(intent,5000);
+        }
+        else if(number==10){
+            onBackPressed();
+            Intent intent = new Intent(getApplicationContext(), SelectMyWordStageActivity.class);
+            intent.putExtra("result", "Close Popup");
+            intent.putExtra("sex", sex);
+            intent.putExtra("speed", speed);
+            intent.putExtra("voice", voice);
+            setResult(RESULT_OK, intent);
+            startActivityForResult(intent,5000);
+        }
+        else if(number==11){
+            onBackPressed();
+            Intent intent = new Intent(getApplicationContext(), SelectSyllableCountActivity.class);
+            intent.putExtra("result", "Close Popup");
+            intent.putExtra("test", "test");
             intent.putExtra("sex", sex);
             intent.putExtra("speed", speed);
             intent.putExtra("voice", voice);
