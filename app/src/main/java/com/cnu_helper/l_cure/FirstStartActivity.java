@@ -1,7 +1,9 @@
 package com.cnu_helper.l_cure;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
@@ -39,6 +41,16 @@ public class FirstStartActivity extends AppCompatActivity {
         }
     };
 
+    private View.OnClickListener mVideoButtonClick = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("https://youtu.be/1XCy-KEfH7M")); // 유튜브 url
+            startActivity(intent);
+        }
+    };
+
     private class PagerAdapterClass extends PagerAdapter{
         private LayoutInflater mlnflater;
 
@@ -49,7 +61,7 @@ public class FirstStartActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 5;
+            return 7;
         }
 
         @Override
@@ -63,6 +75,12 @@ public class FirstStartActivity extends AppCompatActivity {
                     break;
                 }
                 case 1: {
+                    v = mlnflater.inflate(R.layout.firststartview_video, null);
+                    v.findViewById(R.id.fsv_video);
+                    v.findViewById(R.id.go_video_button).setOnClickListener(mVideoButtonClick);
+                    break;
+                }
+                case 3: {
                     v = mlnflater.inflate(R.layout.firststartview2, null);
                     v.findViewById(R.id.fsv_two);
                     break;
@@ -72,12 +90,17 @@ public class FirstStartActivity extends AppCompatActivity {
                     v.findViewById(R.id.fsv_three);
                     break;
                 }
-                case 3: {
+                case 4: {
                     v = mlnflater.inflate(R.layout.firststartview4, null);
                     v.findViewById(R.id.fsv_four);
                     break;
                 }
-                case 4: {
+                case 5: {
+                    v = mlnflater.inflate(R.layout.firststartview_sns, null);
+                    v.findViewById(R.id.fsv_sns);
+                    break;
+                }
+                case 6: {
                     v = mlnflater.inflate(R.layout.firststartview5, null);
                     v.findViewById(R.id.fsv_five).setOnClickListener(mCloseButtonClick);
                     break;
