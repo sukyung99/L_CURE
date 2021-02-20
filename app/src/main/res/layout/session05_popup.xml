@@ -28,7 +28,7 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="\n마이크 버튼을 누르고\n\n음소를\n바꾸어 말해보세요" />
+            android:text="\n마이크 버튼을 누르고\n\n단어를\n바꾸어 말해보세요" />
 
 
     </LinearLayout>

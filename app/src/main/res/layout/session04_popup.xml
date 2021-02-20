@@ -28,7 +28,7 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="\그림판을 누르고\n\n음소를\n합쳐서 말해보세요" />
+            android:text="\그림판을 누르고\n\n글자를\n합쳐서 말해보세요" />
 
 
     </LinearLayout>

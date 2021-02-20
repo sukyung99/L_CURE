@@ -28,7 +28,7 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="\n소리나는 단어로\n\n시작하는 단어를\n맞춰보세요." />
+            android:text="\n다음 버튼을 누르고\n소리나는 단어로\n\n시작하는 단어를\n맞춰보세요.\n(인터넷 연결 필요)" />
 
 
     </LinearLayout>
