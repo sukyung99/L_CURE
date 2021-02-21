@@ -82,11 +82,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/syllable_count_drawable"
+        android:background="@drawable/green_circle_drawable"
+        android:gravity="center_horizontal"
+        android:text="ㄱ"
+        android:textColor="@color/black"
+        android:textSize="90dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/word_synthesis"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
@@ -94,9 +99,14 @@
         android:id="@+id/word_synthesis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="35dp"
-        android:background="@drawable/word_synthesis_drawable"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="44dp"
+        android:background="@drawable/blue_circle_drawable"
+        android:gravity="center_horizontal"
+        android:text="ㄴ"
+        android:textColor="@color/black"
+        android:textSize="90dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
@@ -105,51 +115,147 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="35dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/phonemic_fractionation_drawable"
+        android:background="@drawable/blue_circle_drawable"
+        android:gravity="center_horizontal"
+        android:text="ㄷ"
+        android:textColor="@color/black"
+        android:textSize="90dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/phonemic_synthesis"
-        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintHorizontal_bias="0.17"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/syllable_count" />
+        app:layout_constraintTop_toBottomOf="@+id/syllable_count_text" />
 
     <Button
         android:id="@+id/phonemic_synthesis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="35dp"
-        android:background="@drawable/phonemic_synthesis_drawable"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="44dp"
+        android:background="@drawable/green_circle_drawable"
+        android:gravity="center_horizontal"
+        android:text="ㄹ"
+        android:textColor="@color/black"
+        android:textSize="90dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/word_synthesis" />
+        app:layout_constraintTop_toBottomOf="@+id/word_synthesis_text" />
 
     <Button
         android:id="@+id/phonemic_substitution"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/phonemic_substitution_drawable"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/green_circle_drawable"
+        android:gravity="center_horizontal"
+        android:text="ㅁ"
+        android:textColor="@color/black"
+        android:textSize="90dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/syllabic_discrimination"
-        app:layout_constraintHorizontal_bias="0.151"
+        app:layout_constraintHorizontal_bias="0.224"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phonemic_fractionation"
-        app:layout_constraintVertical_bias="0.021" />
+        app:layout_constraintTop_toBottomOf="@+id/phonemic_fractionation_text" />
 
     <Button
         android:id="@+id/syllabic_discrimination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/syllabic_discrimination_drawable"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="44dp"
+        android:background="@drawable/blue_circle_drawable"
+        android:gravity="center_horizontal"
+        android:text="ㅂ"
+        android:textColor="@color/black"
+        android:textSize="90dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phonemic_synthesis"
-        app:layout_constraintVertical_bias="0.014" />
+        app:layout_constraintTop_toBottomOf="@+id/phonemic_synthesis_text" />
+
+    <TextView
+        android:id="@+id/syllable_count_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_horizontal"
+        android:text="ㄱ. 글자수 세기"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/word_synthesis_text"
+        app:layout_constraintHorizontal_bias="0.385"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/syllable_count" />
+
+    <TextView
+        android:id="@+id/word_synthesis_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="34dp"
+        android:text="ㄴ. 단어 합치기"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/word_synthesis" />
+
+    <TextView
+        android:id="@+id/phonemic_fractionation_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="ㄷ. 글자 나누기"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/phonemic_synthesis_text"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phonemic_fractionation" />
+
+    <TextView
+        android:id="@+id/phonemic_synthesis_text"
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:layout_marginEnd="34dp"
+        android:text="ㄹ. 글자 만들기"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phonemic_synthesis" />
+
+    <TextView
+        android:id="@+id/phonemic_substitution_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="ㅁ. 글자 바꾸기"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/syllabic_discrimination_text"
+        app:layout_constraintHorizontal_bias="0.385"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phonemic_substitution" />
+
+    <TextView
+        android:id="@+id/syllabic_discrimination_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:text="ㅂ. 글자 맞추기"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/syllabic_discrimination" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

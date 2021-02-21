@@ -72,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
-            android:text="ㄹ. 음소 합성"
+            android:text="ㄹ. 글자 만들기"
             android:textColor="@color/black"
             android:textSize="40dp" />
     </LinearLayout>

@@ -72,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
-            android:text="ㄷ. 음소 분절"
+            android:text="ㄷ. 글자 나누기"
             android:textColor="@color/black"
             android:textSize="40dp" />
     </LinearLayout>

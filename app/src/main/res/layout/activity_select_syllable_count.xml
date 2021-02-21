@@ -72,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center_horizontal"
-            android:text="ㄱ. 음절 세기"
+            android:text="ㄱ. 글자수 세기"
             android:textColor="@color/black"
             android:textSize="40dp" />
     </LinearLayout>
