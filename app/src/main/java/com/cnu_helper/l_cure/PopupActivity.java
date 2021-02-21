@@ -60,12 +60,12 @@ public class PopupActivity extends Activity implements TextToSpeechListener {
             setContentView(R.layout.knowing_popup);
             String[] test = intent.getStringArrayExtra("test");
             TextView textView = findViewById(R.id.textView2);
-            textView.setText("음절 세기 : " + test[0] +
-                    "\n\n단어 합성 : " + test[1] +
-                    "\n\n음소 분절 : " + test[2] +
-                    "\n\n음소 합성 : " + test[3] +
-                    "\n\n음소 대치 : " + test[4] +
-                    "\n\n음절 변별 : " + test[5] + "\n");
+            textView.setText("글자수 세기 : " + test[0] +
+                    "\n\n단어 합치기 : " + test[1] +
+                    "\n\n글자 나누기 : " + test[2] +
+                    "\n\n글자 만들기 : " + test[3] +
+                    "\n\n글자 바꾸기 : " + test[4] +
+                    "\n\n글자 맞추기 : " + test[5] + "\n");
         }else if(number==10) {
             setContentView(R.layout.special_popup);
         }
