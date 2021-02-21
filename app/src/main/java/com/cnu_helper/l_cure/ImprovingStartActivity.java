@@ -49,7 +49,7 @@ public class ImprovingStartActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return 8;
+            return 7;
         }
 
         @Override
@@ -88,11 +88,7 @@ public class ImprovingStartActivity extends AppCompatActivity {
                 }
                 case 6: {
                     v = mlnflater.inflate(R.layout.improvingstartview6, null);
-                    break;
-                }
-                case 7: {
-                    v = mlnflater.inflate(R.layout.firststartview5, null);
-                    v.findViewById(R.id.fsv_five).setOnClickListener(mCloseButtonClick);
+                    v.findViewById(R.id.isv_six).setOnClickListener(mCloseButtonClick);
                     break;
                 }
                 default:
