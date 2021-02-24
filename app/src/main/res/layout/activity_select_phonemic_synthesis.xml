@@ -25,7 +25,8 @@
             android:background="@drawable/back_drawable"
             app:layout_constraintEnd_toStartOf="@+id/title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="Back"/>
 
         <TextView
             android:id="@+id/title"
@@ -51,7 +52,8 @@
             android:backgroundTint="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/title"
-            app:layout_constraintTop_toTopOf="@+id/title" />
+            app:layout_constraintTop_toTopOf="@+id/title"
+            android:contentDescription="Help"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -133,7 +135,8 @@
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jwungsung"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:contentDescription="Answer Board"/>
 
     <TextView
         android:id="@+id/word"

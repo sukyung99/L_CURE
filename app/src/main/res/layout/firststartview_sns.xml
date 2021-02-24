@@ -7,7 +7,8 @@
         android:id="@+id/fsv_sns"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@drawable/firststartview_sns"/>
+        android:background="@drawable/firststartview_sns"
+        android:contentDescription="How to use"/>
 
 <!--    <Button-->
 <!--        android:id="@+id/close"-->

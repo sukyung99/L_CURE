@@ -25,7 +25,8 @@
             android:background="@drawable/back_drawable"
             app:layout_constraintEnd_toStartOf="@+id/title"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="Back"/>
 
         <TextView
             android:id="@+id/title"
@@ -51,7 +52,8 @@
             android:backgroundTint="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/title"
-            app:layout_constraintTop_toTopOf="@+id/title" />
+            app:layout_constraintTop_toTopOf="@+id/title"
+            android:contentDescription="Help"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -109,7 +111,8 @@
             android:layout_height="170dp"
             android:layout_marginTop="-40dp"
             android:background="@drawable/note"
-            app:layout_constraintRight_toLeftOf="@+id/board_2" />
+            app:layout_constraintRight_toLeftOf="@+id/board_2"
+            android:contentDescription="Sketchbook"/>
     </LinearLayout>
 
 
@@ -129,7 +132,8 @@
             android:layout_height="170dp"
             android:layout_marginTop="-40dp"
             android:background="@drawable/note"
-            app:layout_constraintLeft_toRightOf="@+id/board_1" />
+            app:layout_constraintLeft_toRightOf="@+id/board_1"
+            android:contentDescription="Sketchbook"/>
     </LinearLayout>
 
     <LinearLayout
@@ -148,7 +152,8 @@
             android:layout_height="170dp"
             android:layout_marginTop="-40dp"
             android:background="@drawable/note"
-            app:layout_constraintLeft_toRightOf="@+id/board_1" />
+            app:layout_constraintLeft_toRightOf="@+id/board_1"
+            android:contentDescription="Sketchbook"/>
     </LinearLayout>
 
     <Button
@@ -166,7 +171,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:contentDescription="Speaker"/>
 
     <Button
         android:id="@+id/word_1"

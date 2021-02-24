@@ -21,7 +21,8 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:adjustViewBounds="true"
-            android:scaleType="fitCenter" />
+            android:scaleType="fitCenter"
+            android:importantForAccessibility="no"/>
 
         <TextView
             android:id="@+id/textView2"
@@ -44,6 +45,7 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:contentDescription="Next"
             android:padding="16dp"
             android:background="#C4DDF2"
             android:drawableRight="@drawable/next"

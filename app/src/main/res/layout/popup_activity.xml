@@ -45,6 +45,7 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:contentDescription="Next"
             android:padding="16dp"
             android:drawableRight="@drawable/next"
             android:layout_width="110dp"

@@ -31,7 +31,8 @@
                 android:background="@drawable/back_drawable"
                 app:layout_constraintEnd_toStartOf="@+id/title"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="Back"/>
 
             <TextView
                 android:id="@+id/title"

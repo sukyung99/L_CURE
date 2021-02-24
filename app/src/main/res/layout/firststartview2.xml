@@ -7,6 +7,7 @@
         android:id="@+id/fsv_two"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@drawable/firststart2"/>
+        android:background="@drawable/firststart2"
+        android:contentDescription="How to use"/>
 
 </LinearLayout>
