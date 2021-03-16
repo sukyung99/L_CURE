@@ -159,8 +159,8 @@ Test 단계를 통해서 사용자는 자신이 부족한 단계가 무엇인지
     sukyung99 <br>
   </a>
 
-  <a href="https://github.com/Deokk">
-    Deokk <br>
+  <a href="https://github.com/dk-kling">
+    dk-kling <br>
   </a>
 </h5>
 
